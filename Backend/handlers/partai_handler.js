@@ -38,26 +38,32 @@ const getAllPartai = async (request, h) => {
 
         connection.release();
 
-        const partaiData = rows.map(row => ({
-            ID: row.ID,
-            Nama: row.Nama,
-            Akronim: row.Akronim,
-            Logo: row.Logo,
-            KetuaUmum: row.KetuaUmum,
-            SekretarisJenderal: row.SekretarisJenderal,
-            KetuaFraksiDPR: row.KetuaFraksiDPR,
-            TglDibentuk: row.TglDibentuk,
-            KantorPusat: row.KantorPusat,
-            Ideologi: row.Ideologi,
-            Kursi: {
-                DPR: row.JmlKursiDPR,
-                DPRD1: row.JmlKursiDPRD1,
-                DPRD2: row.JmlKursiDPRD2,
-            },
-            Visi: row.Visi ? row.Visi.split('|').filter(Boolean) : {},
-            Misi: row.Misi ? row.Misi.split('|').filter(Boolean) : {},
-            Favorit: row.Favorit,
-        }));
+        const partaiData = rows.map(row => {
+            const partai = {
+                ID: row.ID,
+                Nama: row.Nama,
+                Akronim: row.Akronim !== null ? row.Akronim : undefined,
+                Logo: row.Logo !== null ? row.Logo : undefined,
+                KetuaUmum: row.KetuaUmum !== null ? row.KetuaUmum : undefined,
+                SekretarisJenderal: row.SekretarisJenderal !== null ? row.SekretarisJenderal : undefined,
+                KetuaFraksiDPR: row.KetuaFraksiDPR !== null ? row.KetuaFraksiDPR : undefined,
+                TglDibentuk: row.TglDibentuk,
+                KantorPusat: row.KantorPusat !== null ? row.KantorPusat : undefined,
+                Ideologi: row.Ideologi !== null ? row.Ideologi : undefined,
+                Kursi: {
+                    DPR: row.JmlKursiDPR !== null ? row.JmlKursiDPR : undefined,
+                    DPRD1: row.JmlKursiDPRD1 !== null ? row.JmlKursiDPRD1 : undefined,
+                    DPRD2: row.JmlKursiDPRD2 !== null ? row.JmlKursiDPRD2 : undefined,
+                },
+                Visi: row.Visi !== null ? row.Visi.split('|').filter(Boolean) : undefined,
+                Misi: row.Misi !== null ? row.Misi.split('|').filter(Boolean) : undefined,
+                Favorit: row.Favorit,
+            };
+
+            Object.keys(partai).forEach(key => partai[key] === undefined && delete partai[key]);
+
+            return partai;
+        });
 
         return h.response(partaiData).code(200);
 
@@ -114,26 +120,32 @@ const getPartaiById = async (request, h) => {
         connection.release();
 
         if (rows.length > 0) {
-            const partaiData = rows.map(row => ({
-                ID: row.ID,
-                Nama: row.Nama,
-                Akronim: row.Akronim,
-                Logo: row.Logo,
-                KetuaUmum: row.KetuaUmum,
-                SekretarisJenderal: row.SekretarisJenderal,
-                KetuaFraksiDPR: row.KetuaFraksiDPR,
-                TglDibentuk: row.TglDibentuk,
-                KantorPusat: row.KantorPusat,
-                Ideologi: row.Ideologi,
-                Kursi: {
-                    DPR: row.JmlKursiDPR,
-                    DPRD1: row.JmlKursiDPRD1,
-                    DPRD2: row.JmlKursiDPRD2,
-                },
-                Visi: row.Visi ? row.Visi.split('|').filter(Boolean) : {},
-                Misi: row.Misi ? row.Misi.split('|').filter(Boolean) : {},
-                Favorit: row.Favorit
-            }));
+            const partaiData = rows.map(row => {
+                const partai = {
+                    ID: row.ID,
+                    Nama: row.Nama,
+                    Akronim: row.Akronim !== null ? row.Akronim : undefined,
+                    Logo: row.Logo !== null ? row.Logo : undefined,
+                    KetuaUmum: row.KetuaUmum !== null ? row.KetuaUmum : undefined,
+                    SekretarisJenderal: row.SekretarisJenderal !== null ? row.SekretarisJenderal : undefined,
+                    KetuaFraksiDPR: row.KetuaFraksiDPR !== null ? row.KetuaFraksiDPR : undefined,
+                    TglDibentuk: row.TglDibentuk,
+                    KantorPusat: row.KantorPusat !== null ? row.KantorPusat : undefined,
+                    Ideologi: row.Ideologi !== null ? row.Ideologi : undefined,
+                    Kursi: {
+                        DPR: row.JmlKursiDPR !== null ? row.JmlKursiDPR : undefined,
+                        DPRD1: row.JmlKursiDPRD1 !== null ? row.JmlKursiDPRD1 : undefined,
+                        DPRD2: row.JmlKursiDPRD2 !== null ? row.JmlKursiDPRD2 : undefined,
+                    },
+                    Visi: row.Visi !== null ? row.Visi.split('|').filter(Boolean) : undefined,
+                    Misi: row.Misi !== null ? row.Misi.split('|').filter(Boolean) : undefined,
+                    Favorit: row.Favorit,
+                };
+
+                Object.keys(partai).forEach(key => partai[key] === undefined && delete partai[key]);
+
+                return partai;
+            });
 
             return h.response(partaiData).code(200);
         } else {
