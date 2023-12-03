@@ -15,7 +15,8 @@ const init = async () => {
   // ANGGOTA PARTAI
   server.route([
     { method: 'GET', path: '/anggota_partai', handler: anggota_partai_handler.getAllAnggotaPartai },
-    { method: 'GET', path: '/anggota_partai/{id}', handler: anggota_partai_handler.getAnggotaPartaiById },
+    // { method: 'GET', path: '/anggota_partai/id', handler: anggota_partai_handler.getAnggotaPartaiById},
+    // { method: 'GET', path: '/anggota_partai/partai', handler: anggota_partai_handler.getAllAnggotaPartaiByPartai },
   ]);
 
   // PARTAI
