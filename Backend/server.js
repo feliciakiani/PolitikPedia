@@ -7,6 +7,7 @@ const favorit_partai_handler = require('./handlers/favorit_partai_handler.js')
 const favorit_anggota_partai_handler = require('./handlers/favorit_anggota_partai_handler.js')
 const report_komentar_handler = require('./handlers/report_komentar_handler.js')
 const user_handler = require('./handlers/user_handler.js')
+const banned_user_handler = require('./handlers/banned_user_handler.js')
 
 const init = async () => {
   const server = Hapi.server({
@@ -48,6 +49,12 @@ const init = async () => {
     { method: 'POST', path: '/register', handler: user_handler.userRegister },
     
   ])
+
+  // BANNED USER
+  server.route([
+    { method: 'POST', path: '/user/banned', handler: banned_user_handler.insertBannedUser },
+    { method: 'PUT', path: '/user/banned', handler: banned_user_handler.updateBannedUser },
+  ]);
 
   await server.start();
   console.log(`Server berjalan pada ${server.info.uri}`);

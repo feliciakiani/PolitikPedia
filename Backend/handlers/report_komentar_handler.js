@@ -1,6 +1,7 @@
 require('dotenv').config();
 const pool = require('../db_server');
 const nodemailer = require('nodemailer');
+// const banned_user_handler = require('./banned_user_handler')
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -34,8 +35,10 @@ const insertReportKomentar = async (request, h) => {
 
         sendNotificationReportedCommentEmail(komentarId, alasan);
 
-        // if (checkTotalUserBeenReported(komentarId)) {
+        // const resultCheckTotalUserBeenReported = await banned_user_handler.checkTotalUserBeenReportedBy10(komentarId);
 
+        // if (resultCheckTotalUserBeenReported.isReportedMoreThan10) {
+        //     await banned_user_handler.insertBannedUser(resultCheckTotalUserBeenReported.userId);
         // }
 
         return h.response({ message: 'INSERT success' }).code(200);
