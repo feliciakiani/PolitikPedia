@@ -21,7 +21,8 @@
     "@hapi/hapi": "^21.3.2",
     "dotenv": "^16.3.1",
     "hapi": "^18.1.0",
-    "mysql2": "^3.6.5"
+    "mysql2": "^3.6.5",
+    "nodemailer": "^6.9.7"
   },
   "devDependencies": {}
 }
