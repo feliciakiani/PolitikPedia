@@ -5,6 +5,7 @@ const anggota_partai_handler = require('./handlers/anggota_partai_handler.js')
 const partai_handler = require('./handlers/partai_handler.js')
 const favorit_partai_handler = require('./handlers/favorit_partai_handler.js')
 const favorit_anggota_partai_handler = require('./handlers/favorit_anggota_partai_handler.js')
+const report_komentar_handler = require('./handlers/report_komentar_handler.js')
 
 const init = async () => {
   const server = Hapi.server({
@@ -35,6 +36,11 @@ const init = async () => {
     { method: 'GET', path: '/fav_anggota_partai/{id}', handler: favorit_anggota_partai_handler.getFavoritAnggotaPartaiByUserId },
     { method: 'POST', path: '/fav_anggota_partai', handler: favorit_anggota_partai_handler.insertFavoritAnggotaPartai },
     { method: 'DELETE', path: '/fav_anggota_partai', handler: favorit_anggota_partai_handler.deleteFavoritAnggotaPartai },
+  ]);
+
+  // REPORT KOMENTAR
+  server.route([
+    { method: 'POST', path: '/report_komentar', handler: report_komentar_handler.insertReportKomentar },
   ]);
 
   await server.start();
