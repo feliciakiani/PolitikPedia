@@ -10,38 +10,6 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-
-// const checkTotalUserBeenReportedBy10 = async (komentarId) => {
-//     try {
-//         const connection = await pool.getConnection();
-
-//         const query = `
-//             SELECT
-//                 COUNT(*) AS ReportCount,
-//                 komentar.IDUser
-//             FROM 
-//                 report_komentar
-//             JOIN komentar ON komentar.ID = report_komentar.IDKomentar
-//             WHERE 
-//                 komentar.ID = ?;
-//         `;
-
-//         const [row] = await connection.execute(query, [komentarId]);
-
-//         connection.release();
-
-//         const result = {
-//             isReportedMoreThan10: row[0].ReportCount > 10,
-//             userId: row[0].IDUser
-//         };
-
-//         return result;
-
-//     } catch (error) {
-//         console.error('Error checking total user has been reported:', error);
-//     }
-// }
-
 const checkTotalUserCommentBeenReportedBy10 = async (userId) => {
     try {
         const connection = await pool.getConnection();
@@ -99,7 +67,10 @@ const insertBannedUser = async (request, h) => {
 
         const connection = await pool.getConnection();
 
-        const userId = request.query.userId;
+        const userId = request.payload.userId;
+        if (!userId || typeof userId !== 'string') {
+            return h.response('Invalid userId parameter').code(400);
+        }
 
         const totalUserHasBeenReported = await checkTotalUserCommentBeenReportedBy10(userId);
         if (!totalUserHasBeenReported) {
@@ -130,18 +101,11 @@ const updateBannedUser = async (request, h) => {
 
         const connection = await pool.getConnection();
 
-        const userId = request.query.userId;
+        const userId = request.payload.userId;
 
-        // const getQuery = `
-        //     SELECT
-        //         DATEDIFF(banned_user.TglAkhirBanned, banned_user.TglAwalBanned) AS DurasiHariBanned
-        //     FROM 
-        //         banned_user
-        //     WHERE 
-        //         banned_user.IDUser = ?;
-        // `;
-
-        // const [row] = await connection.execute(getQuery, [userId]);
+        if (!userId || typeof userId !== 'string') {
+            return h.response('Invalid userId parameter').code(400);
+        }
 
         const row = await isUserBanned(userId);
 
