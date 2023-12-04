@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_capres">
+
+    <fragment
+        android:id="@+id/navigation_capres"
+        android:name="com.dicoding.politikpediaxml.view.home.ui.capres.CapresFragment"
+        android:label="@string/title_capres"
+        tools:layout="@layout/fragment_capres" />
+
+    <fragment
+        android:id="@+id/navigation_partai"
+        android:name="com.dicoding.politikpediaxml.view.home.ui.partai.PartaiFragment"
+        android:label="@string/title_partai"
+        tools:layout="@layout/fragment_partai" />
+
+    <fragment
+        android:id="@+id/navigation_anggota"
+        android:name="com.dicoding.politikpediaxml.view.home.ui.anggota.AnggotaFragment"
+        android:label="@string/title_anggota"
+        tools:layout="@layout/fragment_anggota" />
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.dicoding.politikpediaxml.view.home.ui.favorite.FavoriteFragment"
+        android:label="@string/title_favorite"
+        tools:layout="@layout/fragment_favorite"/>
+</navigation>
