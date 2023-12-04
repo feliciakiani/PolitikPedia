@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,14 @@
   "homepage": "https://github.com/feliciakiani/PolitikPedia#readme",
   "dependencies": {
     "@hapi/hapi": "^21.3.2",
+    "date-and-time": "^3.0.3",
     "dotenv": "^16.3.1",
     "hapi": "^18.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
     "mysql2": "^3.6.5",
     "nodemailer": "^6.9.7"
   }

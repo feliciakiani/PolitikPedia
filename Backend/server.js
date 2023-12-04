@@ -3,6 +3,8 @@ require('dotenv').config();
 const Hapi = require('@hapi/hapi');
 const anggota_partai_handler = require('./handlers/anggota_partai_handler.js')
 const partai_handler = require('./handlers/partai_handler.js')
+const user_handler = require('./handlers/user_handler.js');
+const { authMiddleware } = require('./handlers/authentication_handler.js');
 const favorit_partai_handler = require('./handlers/favorit_partai_handler.js')
 const favorit_anggota_partai_handler = require('./handlers/favorit_anggota_partai_handler.js')
 const report_komentar_handler = require('./handlers/report_komentar_handler.js')
@@ -47,7 +49,11 @@ const init = async () => {
 
   server.route([
     { method: 'POST', path: '/register', handler: user_handler.userRegister },
-    
+    { method: 'POST', path: '/login', handler: user_handler.userLogin },
+    { method: 'POST', path: '/logout', handler: user_handler.userLogout },
+    { method: 'GET', path: '/user', options: {handler: user_handler.getUser, pre:[authMiddleware],}},
+    { method: 'PUT', path: '/user', options: {handler: user_handler.updateUserPassword, pre:[authMiddleware],}},
+
   ])
 
   // BANNED USER
