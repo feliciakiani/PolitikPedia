@@ -203,7 +203,7 @@ const updateUserPassword = async (request, h) => {
     
     // hash password
     const hashedPassword = authentication.hashPassword(newPassword);
-    console.log("pw: ",hashedPassword);
+    
     const updateQuery = "UPDATE `user` SET `Password`= ? WHERE ID = ?";
     await connection.execute(updateQuery, [hashedPassword, userId]);
 
