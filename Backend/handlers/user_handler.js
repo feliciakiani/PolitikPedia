@@ -38,6 +38,9 @@ const userRegister = async (request, h) => {
         .code(200);
     }
 
+    // hash password
+    const hashedPassword = authentication.hashPassword(password);
+
     // Insert user data into the database
     const insertQuery =
       "INSERT INTO `user`(`FirstName`, `LastName`, `Email`, `Password`) VALUES (?, ?, ?, ?)";
@@ -45,7 +48,7 @@ const userRegister = async (request, h) => {
       firstName,
       lastName,
       email,
-      password,
+      hashedPassword,
     ]);
 
     connection.release();
@@ -73,13 +76,21 @@ const userLogin = async (request, h) => {
     const connection = await pool.getConnection();
 
     // check the user credentials
-    const checkQuery = "SELECT * FROM `user` WHERE email = ? AND Password = ?";
-    const [rows] = await connection.execute(checkQuery, [email, password]);
-    const user = rows[0];
+    const checkQuery = "SELECT * FROM `user` WHERE email = ?";
+    const [rows] = await connection.execute(checkQuery, [email]);
     if (rows.length === 0) {
       connection.release();
-      return h.response({ error: "Invalid email or password!" }).code(401);
+      return h.response({ error: "Invalid email!" }).code(401);
     }
+    const user = rows[0];
+
+    // verify password
+    const hashedPassword = user.Password;
+    const matchPassword = authentication.comparePassword(password, hashedPassword);
+    if (!matchPassword) {
+      return h.response({error: "Invalid Password!"}).code(401);
+    }
+
     // check if the user is banned
     const checkBanQuery =
       "SELECT IDUser, TglAkhirBanned FROM `banned_user` WHERE IDUser = ?";
@@ -176,18 +187,25 @@ const updateUserPassword = async (request, h) => {
       return h.response({ error: 'Please provide all of the credentials needed!' }).code(400);
     }
     const connection = await pool.getConnection();
-    const query = "SELECT * FROM `user` WHERE ID = ? AND Password = ?";
-    const [rows] = await connection.execute(query, [userId, oldPassword]);
-    if (rows.length === 0) {
-      connection.release();
-      return h.response({error: "Wrong old password!"}).code(401);
+    const query = "SELECT * FROM `user` WHERE ID = ?";
+    const [rows] = await connection.execute(query, [userId]);
+    const user = rows[0];
+    // verify password
+    const matchPassword = authentication.comparePassword(oldPassword, user.Password);
+    if (!matchPassword) {
+      return h.response({error: "Invalid old Password!"}).code(401);
     }
+
     if (newPassword !== newPassword2) {
       connection.release();
       return h.response({error: "Please input the exact same new password in both column!"}).code(400);
     }
+    
+    // hash password
+    const hashedPassword = authentication.hashPassword(newPassword);
+    
     const updateQuery = "UPDATE `user` SET `Password`= ? WHERE ID = ?";
-    await connection.execute(updateQuery, [newPassword, userId]);
+    await connection.execute(updateQuery, [hashedPassword, userId]);
 
     connection.release();
 
