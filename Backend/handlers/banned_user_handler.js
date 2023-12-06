@@ -168,7 +168,7 @@ const sendNotificationUserIsBanned = async (userId) => {
 
                 <p>Terima kasih atas pengertian dan kerjasamanya.</p>
 
-                <p>Salam,<br>Tim Dukungan PolitikPedia</p>
+                <p>Salam,<br>Tim PolitikPedia</p>
             </body>
         </html>
         `;
