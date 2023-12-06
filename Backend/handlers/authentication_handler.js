@@ -1,5 +1,7 @@
 require('dotenv').config();
 const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Function to generate a JWT token
 const generateToken = (userData) => {
@@ -73,7 +75,27 @@ const authMiddleware = async (request, h) => {
   }
 };
 
+const hashPassword = (plainTextPassword) => {
+  try {
+    const hashedPassword = bcrypt.hashSync(plainTextPassword, saltRounds);
+    return hashedPassword;
+  } catch (error) {
+    return h.response({error: "Password hashing failed"});
+  }
+};
+
+const comparePassword = (plainTextPassword, hashedPassword) => {
+  try {
+    const match = bcrypt.compareSync(plainTextPassword, hashedPassword);
+    return match;
+  } catch (error) {
+    return h.response({error: "Password comparison failed"});
+  }
+};
+
 module.exports = {
   generateToken,
   authMiddleware,
+  hashPassword,
+  comparePassword
 };
