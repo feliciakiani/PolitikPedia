@@ -72,21 +72,21 @@ const sendNotificationReportedCommentEmail = async (komentarId, alasan) => {
         const emailText = `
         <html>
             <body>
-            <p>Dear <b>${row[0].FirstName} ${row[0].LastName}</b>,</p>
+                <p>Kepada <b>${row[0].FirstName} ${row[0].LastName}</b>,</p>
 
-            <p>We hope this message finds you well. We would like to bring to your attention that a comment made by you in the PolitikPedia App has been reported for review. The reason provided for the report is: "${alasan}".</p>
+                <p>Kami harap pesan ini menemui Anda dalam keadaan baik. Kami ingin memberitahu bahwa komentar yang Anda buat di Aplikasi PolitikPedia telah dilaporkan. Alasan yang diberikan untuk laporan ini adalah: "${alasan}".</p>
 
-            <p>At PolitikPedia, we encourage open and constructive discussions. To maintain a positive and respectful environment for all users, we kindly remind you to adhere to our community guidelines when expressing your opinions.</p>
+                <p>Di PolitikPedia, kami mendorong diskusi yang terbuka dan konstruktif. Untuk menjaga lingkungan yang positif dan menghormati bagi semua pengguna, kami mengingatkan Anda untuk mematuhi panduan komunitas kami saat menyatakan pendapat.</p>
 
-            <p>Your comment:<br>"${row[0].Komentar}"</p>
+                <p>Komentar Anda:<br>"${row[0].Komentar}"</p>
 
-            <p>Please be mindful of our community guidelines to ensure a positive experience for all users. Multiple reports on user behavior are taken seriously, and repeated violations may result in further actions, including account suspension.</p>
+                <p>Mohon perhatikan panduan komunitas kami untuk memastikan pengalaman positif bagi semua pengguna. Laporan berulang terhadap perilaku pengguna dianggap serius, dan pelanggaran berulang dapat mengakibatkan tindakan lebih lanjut, termasuk penangguhan atau <i>banning</i> akun.</p>
 
-            <p>If you have any questions or concerns, feel free to reach out to our support team.</p>
+                <p>Jika Anda memiliki pertanyaan atau kekhawatiran, jangan ragu untuk menghubungi tim dukungan kami.</p>
 
-            <p>Thank you for your understanding and cooperation.</p>
+                <p>Terima kasih atas pengertian dan kerjasamanya.</p>
 
-            <p>Best regards,<br>PolitikPedia Support Team</p>
+                <p>Salam,<br>Tim PolitikPedia</p>
             </body>
         </html>
         `;
@@ -94,7 +94,7 @@ const sendNotificationReportedCommentEmail = async (komentarId, alasan) => {
         const mailOptions = {
             from: process.env.EMAIL,
             to: row[0].Email,
-            subject: 'Comment Reported in PolitikPedia',
+            subject: 'Komentar Dilaporkan di PolitikPedia',
             html: emailText,
         };
 
