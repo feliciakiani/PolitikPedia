@@ -156,28 +156,27 @@ const sendNotificationUserIsBanned = async (userId) => {
         const emailText = `
         <html>
             <body>
-                <p>Dear <b>${row[0].FirstName} ${row[0].LastName}</b>,</p>
+                <p>Kepada <b>${row[0].FirstName} ${row[0].LastName}</b>,</p>
 
-                <p>We hope this message finds you well. We regret to inform you that due to multiple reports on your comment behavior, your PolitikPedia account has been temporarily suspended for <b>${row[0].DurasiHariBanned} days</b> from today, ${row[0].TglAwalBanned}.</p>
+                <p>Kami harap pesan ini menemui Anda dalam keadaan baik. Dengan menyesal, kami informasikan bahwa akun PolitikPedia Anda telah di-<i>banned</i> sementara selama <b>${row[0].DurasiHariBanned} hari</b> sejak hari ini, ${row[0].TglAwalBanned}.</p>
 
-                <p>During this suspension, you will not be able to access your account. The suspension will be lifted on <b>${row[0].TglAkhirBanned}</b>.</p>
+                <p>Pada masa <i>banned</i> ini, Anda tidak akan dapat mengakses akun Anda. <i>Banned</i> akan dicabut pada tanggal <b>${row[0].TglAkhirBanned}</b>.</p>
 
-                <p>At PolitikPedia, we value respectful and positive interactions among our users. Please take this time to review and adhere to our community guidelines when expressing your opinions.</p>
+                <p>Di PolitikPedia, kami menghargai interaksi yang saling menghormati dan positif antara pengguna kami. Gunakan waktu ini untuk meninjau dan mematuhi panduan komunitas kami saat menyatakan pendapat.</p>
 
-                <p>If you have any questions or concerns, feel free to reach out to our support team.</p>
+                <p>Jika Anda memiliki pertanyaan atau kekhawatiran, jangan ragu untuk menghubungi tim dukungan kami.</p>
 
-                <p>Thank you for your understanding and cooperation.</p>
+                <p>Terima kasih atas pengertian dan kerjasamanya.</p>
 
-                <p>Best regards,<br>PolitikPedia Support Team</p>
+                <p>Salam,<br>Tim Dukungan PolitikPedia</p>
             </body>
         </html>
-
         `;
 
         const mailOptions = {
             from: process.env.EMAIL,
             to: row[0].Email,
-            subject: 'User Account Banned in PolitikPedia',
+            subject: 'Akun Anda Telah Di-Banned di PolitikPedia',
             html: emailText,
         };
 
