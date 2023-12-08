@@ -2,10 +2,11 @@
   "name": "politikpedia",
   "version": "1.0.0",
   "description": "Bangkit 2023 Batch 2 Capstone Project.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "postinstall": "if [[ $(uname) != 'Darwin' ]]; then npm uninstall fsevents --save; fi"
   },
   "repository": {
     "type": "git",

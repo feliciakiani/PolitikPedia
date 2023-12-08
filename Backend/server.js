@@ -13,8 +13,8 @@ const komentar_handler = require('./handlers/komentar_handler');
 
 const init = async () => {
   const server = Hapi.server({
-    port: process.env.ROUTER_PORT,
-    host: 'localhost',
+    port: process.env.ROUTER_PORT || '8080',
+    host: '0.0.0.0',
   });
 
   // ANGGOTA PARTAI
