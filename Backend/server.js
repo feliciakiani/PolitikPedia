@@ -19,32 +19,32 @@ const init = async () => {
 
   // ANGGOTA PARTAI
   server.route([
-    { method: 'GET', path: '/anggota_partai', handler: anggota_partai_handler.getAllAnggotaPartai },
+    { method: 'GET', path: '/anggota_partai', options: {handler: anggota_partai_handler.getAllAnggotaPartai, pre:[authMiddleware],}},
   ]);
 
   // PARTAI
   server.route([
-    { method: 'GET', path: '/partai', handler:  partai_handler.getAllPartai},
-    { method: 'GET', path: '/partai/{id}', handler: partai_handler.getPartaiById },
+    { method: 'GET', path: '/partai', options: {handler:  partai_handler.getAllPartai, pre:[authMiddleware],}},
+    { method: 'GET', path: '/partai/{id}', options: {handler: partai_handler.getPartaiById, pre:[authMiddleware],}},
   ]);
 
   // FAVORIT PARTAI
   server.route([
-    { method: 'GET', path: '/fav_partai/{id}', handler:  favorit_partai_handler.getFavoritPartaiByUserId},
-    { method: 'POST', path: '/fav_partai', handler: favorit_partai_handler.insertFavoritPartai },
-    { method: 'DELETE', path: '/fav_partai', handler: favorit_partai_handler.deleteFavoritPartai },
+    { method: 'GET', path: '/fav_partai', options: {handler: favorit_partai_handler.getFavoritPartaiByUserId, pre:[authMiddleware],}},
+    { method: 'POST', path: '/fav_partai', options: {handler: favorit_partai_handler.insertFavoritPartai, pre:[authMiddleware],}},
+    { method: 'DELETE', path: '/fav_partai', options: {handler: favorit_partai_handler.deleteFavoritPartai, pre:[authMiddleware],}},
   ]);
 
   // FAVORIT ANGGOTA PARTAI
   server.route([
-    { method: 'GET', path: '/fav_anggota_partai/{id}', handler: favorit_anggota_partai_handler.getFavoritAnggotaPartaiByUserId },
-    { method: 'POST', path: '/fav_anggota_partai', handler: favorit_anggota_partai_handler.insertFavoritAnggotaPartai },
-    { method: 'DELETE', path: '/fav_anggota_partai', handler: favorit_anggota_partai_handler.deleteFavoritAnggotaPartai },
+    { method: 'GET', path: '/fav_anggota_partai', options: {handler: favorit_anggota_partai_handler.getFavoritAnggotaPartaiByUserId, pre:[authMiddleware],}},
+    { method: 'POST', path: '/fav_anggota_partai', options: {handler: favorit_anggota_partai_handler.insertFavoritAnggotaPartai, pre:[authMiddleware],}},
+    { method: 'DELETE', path: '/fav_anggota_partai', options: {handler: favorit_anggota_partai_handler.deleteFavoritAnggotaPartai, pre:[authMiddleware],}},
   ]);
 
   // REPORT KOMENTAR
   server.route([
-    { method: 'POST', path: '/report_komentar', handler: report_komentar_handler.insertReportKomentar },
+    { method: 'POST', path: '/report_komentar', options: {handler: report_komentar_handler.insertReportKomentar, pre:[authMiddleware],}},
   ]);
 
   // USER
@@ -59,8 +59,8 @@ const init = async () => {
 
   // BANNED USER
   server.route([
-    { method: 'POST', path: '/user/banned', handler: banned_user_handler.insertBannedUser },
-    { method: 'PUT', path: '/user/banned', handler: banned_user_handler.updateBannedUser },
+    { method: 'POST', path: '/user/banned', options: {handler: banned_user_handler.insertBannedUser, pre:[authMiddleware],}},
+    { method: 'PUT', path: '/user/banned', options: {handler: banned_user_handler.updateBannedUser, pre:[authMiddleware],}},
   ]);
 
   // KOMENTAR

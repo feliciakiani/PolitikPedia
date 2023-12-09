@@ -15,12 +15,17 @@ const insertReportKomentar = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
         const komentarId = request.payload.komentarId;
-        const userReporterId = request.payload.userReporterId;
+        const userReporterId = userId;
         const alasan = request.payload.alasan;
 
-        if (!komentarId || !userReporterId || !alasan || typeof komentarId !== 'string' || typeof userReporterId !== 'string' || typeof alasan !== 'string') {
-            return h.response('Invalid komentarId or userReporterId or alasan parameter').code(400);
+        if (!komentarId || !alasan || typeof komentarId !== 'string' || typeof alasan !== 'string') {
+            return h.response('Invalid komentarId or alasan parameter').code(400);
         }
 
         const insertQuery = `
@@ -34,12 +39,6 @@ const insertReportKomentar = async (request, h) => {
         connection.release();
 
         sendNotificationReportedCommentEmail(komentarId, alasan);
-
-        // const resultCheckTotalUserBeenReported = await banned_user_handler.checkTotalUserBeenReportedBy10(komentarId);
-
-        // if (resultCheckTotalUserBeenReported.isReportedMoreThan10) {
-        //     await banned_user_handler.insertBannedUser(resultCheckTotalUserBeenReported.userId);
-        // }
 
         return h.response({ message: 'INSERT success' }).code(200);
 
