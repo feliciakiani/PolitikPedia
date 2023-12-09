@@ -2,6 +2,11 @@ const pool = require('../db_server');
 
 const getAllAnggotaPartai = async (request, h) => {
     try {
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
         const connection = await pool.getConnection();
 
         const anggotaPartaiId = request.query.anggotaPartaiId;
@@ -87,10 +92,8 @@ const getAllAnggotaPartai = async (request, h) => {
                         Tahun: karyaRow.Karya_Tahun,
                     }
 
-                    // Skip adding properties with null or undefined values
                     Object.keys(karyaEntry).forEach(key => (karyaEntry[key] === null || karyaEntry[key] === undefined) && delete karyaEntry[key]);
 
-                    // Skip adding if there is no data (all properties are either null or undefined)
                     if (Object.values(karyaEntry).filter(Boolean).length > 0) {
                         newAnggotaPartai.Karya.push(karyaEntry);
                     }
@@ -117,10 +120,8 @@ const getAllAnggotaPartai = async (request, h) => {
                     Tahun: penghargaanRow.Penghargaan_Tahun,
                 }
 
-                // Skip adding properties with null or undefined values
                 Object.keys(penghargaanEntry).forEach(key => (penghargaanEntry[key] === null || penghargaanEntry[key] === undefined) && delete penghargaanEntry[key]);
 
-                // Skip adding if there is no data (all properties are either null or undefined)
                 if (Object.values(penghargaanEntry).filter(Boolean).length > 0) {
                     newAnggotaPartai.Penghargaan.push(penghargaanEntry);
                 }
@@ -151,10 +152,8 @@ const getAllAnggotaPartai = async (request, h) => {
                         TahunSelesai: organisasiRow.Organisasi_TahunSelesai,
                     }
 
-                    // Skip adding properties with null or undefined values
                     Object.keys(organisasiEntry).forEach(key => (organisasiEntry[key] === null || organisasiEntry[key] === undefined) && delete organisasiEntry[key]);
 
-                    // Skip adding if there is no data (all properties are either null or undefined)
                     if (Object.values(organisasiEntry).filter(Boolean).length > 0) {
                         newAnggotaPartai.RiwayatOrganisasi.push(organisasiEntry);
                     }
@@ -185,10 +184,8 @@ const getAllAnggotaPartai = async (request, h) => {
                         TahunSelesai: pekerjaanRow.Pekerjaan_TahunSelesai,
                     }
 
-                    // Skip adding properties with null or undefined values
                     Object.keys(pekerjaanEntry).forEach(key => (pekerjaanEntry[key] === null || pekerjaanEntry[key] === undefined) && delete pekerjaanEntry[key]);
 
-                    // Skip adding if there is no data (all properties are either null or undefined)
                     if (Object.values(pekerjaanEntry).filter(Boolean).length > 0) {
                         newAnggotaPartai.RiwayatPekerjaan.push(pekerjaanEntry);
                     }
@@ -218,20 +215,16 @@ const getAllAnggotaPartai = async (request, h) => {
                         TahunSelesai: pendidikanRow.Pendidikan_TahunSelesai,
                     };
 
-                    // Skip adding properties with null or undefined values
                     Object.keys(pendidikanEntry).forEach(key => (pendidikanEntry[key] === null || pendidikanEntry[key] === undefined) && delete pendidikanEntry[key]);
 
-                    // Skip adding if there is no data (all properties are either null or undefined)
                     if (Object.values(pendidikanEntry).filter(Boolean).length > 0) {
                         newAnggotaPartai.RiwayatPendidikan.push(pendidikanEntry);
                     }
                 }
             }
 
-            // Skip adding properties with null values
             Object.keys(newAnggotaPartai).forEach(key => newAnggotaPartai[key] === null && delete newAnggotaPartai[key]);
-
-            // Skip adding empty arrays if there is no data
+            
             if (Object.values(newAnggotaPartai).some(value => value !== null)) {
                 anggotaPartaiData.push(newAnggotaPartai);
             }

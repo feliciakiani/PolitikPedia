@@ -4,10 +4,9 @@ const getFavoritPartaiByUserId = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const userId = request.params.id;
-
-        if (!userId || typeof userId !== 'string') {
-            return h.response('Invalid ID parameter').code(400);
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
         }
 
         const query = `
@@ -41,14 +40,18 @@ const insertFavoritPartai = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const { userId, partaiId } = request.payload;
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
 
+        const { partaiId } = request.payload;
         if (await checkFavoritPartai(userId, partaiId)) {
             return h.response({ error: 'Partai has been favorited' }).code(200);
         }
 
-        if (!userId || !partaiId || typeof userId !== 'string' || typeof partaiId !== 'string') {
-            return h.response('Invalid IDUser or IDPartai parameter').code(400);
+        if (!partaiId || typeof partaiId !== 'string') {
+            return h.response('Invalid IDUser IDPartai parameter').code(400);
         }
 
         const insertQuery = `
@@ -72,14 +75,19 @@ const deleteFavoritPartai = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const { userId, partaiId } = request.payload;
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
+        const { partaiId } = request.payload;
 
         if (!(await checkFavoritPartai(userId, partaiId))) {
             return h.response({ error: 'Partai has not been favorited' }).code(200);
         }
 
-        if (!userId || !partaiId || typeof userId !== 'string' || typeof partaiId !== 'string') {
-            return h.response('Invalid IDUser or IDPartai parameter').code(400);
+        if (!partaiId || typeof partaiId !== 'string') {
+            return h.response('Invalid IDPartai parameter').code(400);
         }
 
         const deleteQuery = `

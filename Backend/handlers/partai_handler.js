@@ -2,6 +2,11 @@ const pool = require('../db_server');
 
 const getAllPartai = async (request, h) => {
     try {
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
         const connection = await pool.getConnection();
 
         const query = `
@@ -75,6 +80,11 @@ const getAllPartai = async (request, h) => {
 
 const getPartaiById = async (request, h) => {
     try {
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+        
         const connection = await pool.getConnection();
 
         const partaiId = request.params.id;

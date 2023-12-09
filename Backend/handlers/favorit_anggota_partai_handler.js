@@ -1,13 +1,13 @@
 const pool = require('../db_server');
+const user_handler = require('./user_handler');
 
 const getFavoritAnggotaPartaiByUserId = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const userId = request.params.id;
-
-        if (!userId || typeof userId !== 'string') {
-            return h.response('Invalid ID parameter').code(400);
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
         }
 
         const query = `
@@ -41,14 +41,18 @@ const insertFavoritAnggotaPartai = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const { userId, anggotaPartaiId } = request.payload;
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
+        const { anggotaPartaiId } = request.payload;
+        if (!anggotaPartaiId || typeof anggotaPartaiId !== 'string') {
+            return h.response('Invalid IDAnggotaPartai parameter').code(400);
+        }
 
         if (await checkFavoritAnggotaPartai(userId, anggotaPartaiId)) {
             return h.response({ error: 'Anggota Partai has been favorited' }).code(200);
-        }
-
-        if (!userId || !anggotaPartaiId || typeof userId !== 'string' || typeof anggotaPartaiId !== 'string') {
-            return h.response('Invalid IDUser or IDAnggotaPartai parameter').code(400);
         }
 
         const insertQuery = `
@@ -73,14 +77,18 @@ const deleteFavoritAnggotaPartai = async (request, h) => {
     try {
         const connection = await pool.getConnection();
 
-        const { userId, anggotaPartaiId } = request.payload;
+        const { userId } = request.user || {};
+        if (!userId) {
+            return h.response({ error: "User not logged in!" }).code(401);
+        }
+
+        const { anggotaPartaiId } = request.payload;
+        if (!anggotaPartaiId || typeof anggotaPartaiId !== 'string') {
+            return h.response('Invalid IDAnggotaPartai parameter').code(400);
+        }
 
         if (!(await checkFavoritAnggotaPartai(userId, anggotaPartaiId))) {
             return h.response({ error: 'Anggota Partai has not been favorited' }).code(200);
-        }
-
-        if (!userId || !anggotaPartaiId || typeof userId !== 'string' || typeof anggotaPartaiId !== 'string') {
-            return h.response('Invalid IDUser or IDAnggotaPartai parameter').code(400);
         }
 
         const deleteQuery = `

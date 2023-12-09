@@ -35,58 +35,36 @@ const checkTotalUserCommentBeenReportedBy10 = async (userId) => {
     }
 }
 
-const isUserBanned = async (userId) => {
-    try {
-        const connection = await pool.getConnection();
-
-        const query = `
-            SELECT
-                IDUser,
-                DATE_FORMAT(TglAwalBanned, '%e %M %Y') AS TglAwalBanned,
-                DATE_FORMAT(TglAkhirBanned, '%e %M %Y') AS TglAkhirBanned,
-                DATEDIFF(TglAkhirBanned, TglAwalBanned) AS DurasiHariBanned
-            FROM 
-                banned_user
-            WHERE 
-                banned_user.IDUser=?;
-        `;
-
-        const [row] = await connection.execute(query, [userId]);
-
-        connection.release();
-
-        return row;
-
-    } catch (error) {
-        console.error('Error checking isUserBanned:', error);
-    }
-}
-
 const insertBannedUser = async (request, h) => {
     try {
 
+        const { userEmail: adminEmail } = request.user || {};
+        if (adminEmail != 'politikpedia.capstone@gmail.com') {
+            return h.response({ error: "Forbidden!" }).code(403);
+        }
+
         const connection = await pool.getConnection();
 
-        const userId = request.payload.userId;
-        if (!userId || typeof userId !== 'string') {
+        const futureBannedUserId = request.payload.userId;
+        if (!futureBannedUserId || typeof futureBannedUserId !== 'string') {
             return h.response('Invalid userId parameter').code(400);
         }
 
-        const totalUserHasBeenReported = await checkTotalUserCommentBeenReportedBy10(userId);
-        if (!totalUserHasBeenReported) {
-            return h.response({ message: 'User comments reported hasn\'t reached 10' }).code(200);
-        }
+        // const totalUserHasBeenReported = await checkTotalUserCommentBeenReportedBy10(futureBannedUserId);
+        // if (!totalUserHasBeenReported) {
+        //     return h.response({ message: 'User comments reported hasn\'t reached 10' }).code(200);
+        // }
 
         const insertQuery = `
             INSERT INTO banned_user (IDUser, TglAwalBanned, TglAkhirBanned)
             VALUES (?, CURDATE(), CURDATE() + INTERVAL 2 DAY);        
         `;
 
-        await connection.execute(insertQuery, [userId]);
+        await connection.execute(insertQuery, [futureBannedUserId]);
 
         connection.release();
 
-        sendNotificationUserIsBanned(userId);
+        sendNotificationUserIsBanned(futureBannedUserId);
 
         return h.response({ message: 'INSERT success' }).code(200);
 
@@ -98,18 +76,32 @@ const insertBannedUser = async (request, h) => {
 
 const updateBannedUser = async (request, h) => {
     try {
+        const { userEmail: adminEmail } = request.user || {};
+        if (adminEmail != 'politikpedia.capstone@gmail.com') {
+            return h.response({ error: "Forbidden!" }).code(403);
+        }
 
         const connection = await pool.getConnection();
 
-        const userId = request.payload.userId;
+        const futureBannedUserId = request.payload.userId;
 
-        if (!userId || typeof userId !== 'string') {
+        if (!futureBannedUserId || typeof futureBannedUserId !== 'string') {
             return h.response('Invalid userId parameter').code(400);
         }
 
-        const row = await isUserBanned(userId);
+        // GET PAST DURASI BANNED
+        const queryDurasiHariBanned = `
+            SELECT
+                DATEDIFF(TglAkhirBanned, TglAwalBanned) AS DurasiHariBanned
+            FROM 
+                banned_user
+            WHERE 
+                banned_user.IDUser=?;
+        `;
 
-        const durasiBanned = row[0].DurasiHariBanned + 3;
+        const [durasiHariBannedRow] = await connection.execute(queryDurasiHariBanned, [futureBannedUserId]);  
+
+        const durasiBanned = durasiHariBannedRow[0].DurasiHariBanned + 3;      
 
         const updateQuery = `
             UPDATE banned_user 
@@ -117,11 +109,11 @@ const updateBannedUser = async (request, h) => {
             WHERE banned_user.IDUser = ?;        
         `;
 
-        await connection.execute(updateQuery, [durasiBanned, userId]);
+        await connection.execute(updateQuery, [durasiBanned, futureBannedUserId]);
 
         connection.release();
 
-        sendNotificationUserIsBanned(userId);
+        sendNotificationUserIsBanned(futureBannedUserId);
 
         return h.response({ message: 'UPDATE success' }).code(200);
 
@@ -148,7 +140,7 @@ const sendNotificationUserIsBanned = async (userId) => {
             JOIN banned_user
                 ON banned_user.IDUser = user.ID
             WHERE 
-                user.ID=?;
+                banned_user.IDUser=?;
         `;
 
         const [row] = await connection.execute(query, [userId]);
@@ -189,9 +181,6 @@ const sendNotificationUserIsBanned = async (userId) => {
 }
 
 module.exports = {
-    checkTotalUserBeenReportedBy10: checkTotalUserCommentBeenReportedBy10,
-    sendNotificationUserIsBanned,
     insertBannedUser,
-    updateBannedUser,
-    isUserBanned
+    updateBannedUser
 };
