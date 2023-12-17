@@ -52,7 +52,7 @@ const insertKomentar = async (request, h) => {
 
 const callSentimentAnalysis = async (token) => {
   try {
-    const flaskServerUrl = 'http://192.168.1.54:5000';
+    const flaskServerUrl = 'https://text-classification-service-ztd22w7ixa-et.a.run.app';
     const response = await axios.get(`${flaskServerUrl}/predict_sentiment`, {
       headers: {
         Authorization: `Bearer ${token}`,
