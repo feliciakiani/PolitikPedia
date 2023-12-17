@@ -1,6 +1,7 @@
 const pool = require("../db_server");
 const date = require("date-and-time");
 const authentication = require("./authentication_handler");
+const axios = require('axios');
 
 const insertKomentar = async (request, h) => {
   try {
@@ -24,10 +25,55 @@ const insertKomentar = async (request, h) => {
     const query =
       "INSERT INTO `komentar`(`IDUser`, `IDAnggotaPartai`, `Komentar`) VALUES (?,?,?)";
     await connection.execute(query, [userId, idAnggota, komentar]);
+
+    // Get 'authToken' cookie from the request headers
+    const authToken = request.headers.cookie;
+
+    if (authToken && authToken.includes("authToken=")) {
+      const token = request.state.authToken;
+
+      const sentimentResult = await callSentimentAnalysis(token);
+
+      const { comment_id, confidence } = sentimentResult;
+
+      // Check sentiment analysis
+      if (confidence >= 0.95) {
+        await deleteKomentar(comment_id);
+        return h.response({ message: "Komentar tidak pantas" }).code(406);
+      }
+    }
+
     return h.response({ message: "Input Komentar Berhasil" }).code(200);
   } catch (error) {
     console.error("Error inserting data:", error);
     return h.response({ error: "Internal Server Error" }).code(500);
+  }
+};
+
+const callSentimentAnalysis = async (token) => {
+  try {
+    const flaskServerUrl = 'http://192.168.1.54:5000';
+    const response = await axios.get(`${flaskServerUrl}/predict_sentiment`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    console.log('Sentiment analysis response:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error performing sentiment analysis:', error);
+  }
+};
+
+const deleteKomentar = async (commentId) => {
+  try {
+    const connection = await pool.getConnection();
+    const query = "DELETE FROM `komentar` WHERE `ID` = ?";
+    await connection.execute(query, [commentId]);
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+    throw error;
   }
 };
 
@@ -171,7 +217,7 @@ const deleteLikeKomentar = async (request, h) => {
     const connection = await pool.getConnection();
     const query = "DELETE FROM `like_komentar` WHERE IDKomentar = ? AND IDUser = ?";
     await connection.execute(query, [idKomentar, userId]);
-    return h.response({message: "Delete like success!"}).code(200);
+    return h.response({ message: "Delete like success!" }).code(200);
   } catch (error) {
     console.error("Error inserting data:", error);
     return h.response({ error: "Internal Server Error" }).code(500);
@@ -179,24 +225,24 @@ const deleteLikeKomentar = async (request, h) => {
 };
 
 const deleteDislikeKomentar = async (request, h) => {
-    try {
-      const { userId } = request.user || {};
-      if (!userId) {
-        return h.response({ error: "User not logged in!" }).code(401);
-      }
-      const idKomentar = request.query.idKomentar;
-      if (idKomentar === undefined) {
-        return h.response({ error: "Please input ID Komentar!" }).code(400);
-      }
-      const connection = await pool.getConnection();
-      const query = "DELETE FROM `dislike_komentar` WHERE IDKomentar = ? AND IDUser = ?";
-      await connection.execute(query, [idKomentar, userId]);
-      return h.response({message: "Delete dislike success!"}).code(200);
-    } catch (error) {
-      console.error("Error inserting data:", error);
-      return h.response({ error: "Internal Server Error" }).code(500);
+  try {
+    const { userId } = request.user || {};
+    if (!userId) {
+      return h.response({ error: "User not logged in!" }).code(401);
     }
-  };
+    const idKomentar = request.query.idKomentar;
+    if (idKomentar === undefined) {
+      return h.response({ error: "Please input ID Komentar!" }).code(400);
+    }
+    const connection = await pool.getConnection();
+    const query = "DELETE FROM `dislike_komentar` WHERE IDKomentar = ? AND IDUser = ?";
+    await connection.execute(query, [idKomentar, userId]);
+    return h.response({ message: "Delete dislike success!" }).code(200);
+  } catch (error) {
+    console.error("Error inserting data:", error);
+    return h.response({ error: "Internal Server Error" }).code(500);
+  }
+};
 
 module.exports = {
   insertKomentar,
