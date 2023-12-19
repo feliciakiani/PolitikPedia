@@ -22,14 +22,16 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import mysql.connector
 import os
 from textblob import TextBlob
-from tensorflow.keras.preprocessing.sequence import pad_sequences
+from keras.preprocessing.sequence import pad_sequences
 import tensorflow as tf
 
 # install .env
 from dotenv import load_dotenv
-dotenv_path = os.path.join(os.path.dirname(__file__), 'Backend', '.env')
-load_dotenv(dotenv_path)
-
+# dotenv_path = os.path.join(os.path.dirname(__file__), 'Backend', '.env')
+# load_dotenv(dotenv_path)
+load_dotenv()
+# %load_ext dotenv
+# %dotenv Backend/.env
 
 # In[4]:
 
@@ -135,6 +137,8 @@ def predict_sentiment(user_id):
     cursor.execute(query)
     comment = cursor.fetchall()
 
+    print("query: ", query)
+
     #-------------------------------------------------Text_Classification-------------------------------------------#
     #Hyperparameter
     max_length = 56
@@ -202,28 +206,35 @@ import jwt
 
 app = Flask(__name__)
 
-@app.route('/predict_sentiment', methods=['GET'])
-def predict_sentiment_endpoint():
+@app.route('/predict_sentiment/<string:userId>', methods=['GET'])
+def predict_sentiment_endpoint(userId):
 
-    auth_header = request.headers.get('Authorization')
+    print(f"masuk def predict_sentiment_endpoint")
 
-    if auth_header and auth_header.startswith('Bearer '):
-        # Extract the token from the Authorization header
-        auth_token = auth_header.split(' ')[1]
+    # auth_header = request.headers.get('Authorization')
 
-        # Decode the JWT token to access user information
-        decoded_token = jwt.decode(auth_token, os.getenv("JWT_SECRET_KEY"), algorithms=['HS256'])
+    # if auth_header and auth_header.startswith('Bearer '):
 
-        user_id = decoded_token.get('userId')
+        # print(f"if auth_header and auth_header.startswith('Bearer '):")
 
-        if user_id:
-            result = predict_sentiment(user_id)
-            return jsonify(result)
-        else:
-            return jsonify({'error': 'userId not found in token'}), 401
-    else:
-        return jsonify({'error': 'authToken not provided in the Authorization header'}), 401
+        # # Extract the token from the Authorization header
+        # auth_token = auth_header.split(' ')[1]
+
+        # # Decode the JWT token to access user information
+        # decoded_token = jwt.decode(auth_token, os.getenv("JWT_SECRET_KEY"), algorithms=['HS256'])
+
+        # user_id = decoded_token.get('userId')
+
+        # if user_id:
+    result = predict_sentiment(userId)
+    print(result)
+    return jsonify(result)
+        # else:
+        #     return jsonify({'error': 'userId not found in token'}), 401
+    # else:
+    #     return jsonify({'error': 'authToken not provided in the Authorization header'}), 401
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888)
+
 
