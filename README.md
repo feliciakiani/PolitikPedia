@@ -17,7 +17,7 @@ An application that serves as Indonesia's government wikipedia with detailed par
 |Muhammad Satya Buana Prawira|M006BSY1306|Machine Learning|
 |Daru Adiyatma Rauf|M006BSY0663|Machine Learning|
 |Vanny Kusnadi|M006BSX0823|Machine Learning|
-|Felicia Kiani Lestari|M006BSX0823|Cloud Computing|
+|Felicia Kiani Lestari|C003BSX3401|Cloud Computing|
 |Alexander Juan Dicoza|C003BSY3376|Cloud Computing|
 |M Rizki Alfarisi|A443BSY2131|Mobile Development|
 
