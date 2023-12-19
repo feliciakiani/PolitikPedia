@@ -26,33 +26,32 @@ const insertKomentar = async (request, h) => {
       "INSERT INTO `komentar`(`IDUser`, `IDAnggotaPartai`, `Komentar`) VALUES (?,?,?)";
     await connection.execute(query, [userId, idAnggota, komentar]);
 
-    // Get 'authToken' cookie from the request headers
-    const authToken = request.headers.cookie;
+    // Sentiment Analysis Endpoint
+    const sentimentResult = await callSentimentAnalysis(userId);
+    const { comment_id, confidence } = sentimentResult;
 
-    if (authToken && authToken.includes("authToken=")) {
-      const token = request.state.authToken;
-
-      const sentimentResult = await callSentimentAnalysis(userId);
-
-      const { comment_id, confidence } = sentimentResult;
-
-      // Check sentiment analysis
-      if (confidence >= 0.95) {
-        await deleteKomentar(comment_id);
-        return h.response({ message: "Komentar tidak pantas" }).code(406);
-      }
+    // Check sentiment analysis
+    if (confidence >= 0.90) {
+      await deleteKomentar(comment_id);
+      return h.response({ message: "Komentar tidak pantas" }).code(406);
     }
 
-    return h.response({ message: "Input Komentar Berhasil" }).code(200);
+    return h.response({ 
+      message: "Input Komentar Berhasil",
+      comment_id: comment_id,
+      comment: komentar,
+      confidence: confidence
+   }).code(200);
+
   } catch (error) {
     console.error("Error inserting data:", error);
     return h.response({ error: "Internal Server Error" }).code(500);
   }
-}; 
+};
 
 const callSentimentAnalysis = async (userId) => {
   try {
-    const flaskServerUrl = 'http://192.168.1.55:8888';
+    const flaskServerUrl = 'https://text-classification-service-ztd22w7ixa-et.a.run.app';
     const response = await fetch(`${flaskServerUrl}/predict_sentiment/${userId}`, {
       method: 'GET',
     });
@@ -62,7 +61,6 @@ const callSentimentAnalysis = async (userId) => {
     }
 
     const data = await response.json();
-    console.log('Sentiment analysis response:', data);
     return data;
   } catch (error) {
     console.error('Error performing sentiment analysis:', error);
