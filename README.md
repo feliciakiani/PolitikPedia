@@ -1,6 +1,9 @@
 # PolitikPedia
 Bangkit 2023 Batch 2 Capstone Project (CH2-PS326).
 
+<img src="https://drive.google.com/uc?export=download&id=1okPqLsYAz-Bqp-jd_K1PEdGjowJUMmxI" alt="Logo PolitikPedia" width="30%">
+
+
 # About
 An application that serves as Indonesia's government wikipedia with detailed party profiles, including their vision, mission, history, leadership, and ideology.
 ## Objectives:
@@ -16,7 +19,7 @@ An application that serves as Indonesia's government wikipedia with detailed par
 |Vanny Kusnadi|M006BSX0823|Machine Learning|
 |Felicia Kiani Lestari|M006BSX0823|Cloud Computing|
 |Alexander Juan Dicoza|C003BSY3376|Cloud Computing|
-|M Rizki Alfarisi|A443BSY2131|Cloud Computing|
+|M Rizki Alfarisi|A443BSY2131|Mobile Development|
 
 # Features
 * Sign Up / Login (With Authentication and Authorization)
