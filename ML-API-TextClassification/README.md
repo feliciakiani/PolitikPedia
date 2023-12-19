@@ -1,12 +1,12 @@
 # API Description
-This API is designed exclusively for the Machine Learning model using Flask Framework. It automatically processes comments submitted through PolitikPedia's backend service. The API requires a token parameter to identify the user making the comment. If the sentiment confidence level exceeds 9.5, indicating a very negative sentiment, the comment will be automatically removed.
+This API is designed exclusively for the Machine Learning model using Flask Framework. It automatically processes comments submitted through PolitikPedia's backend service. The API requires a token parameter to identify the user making the comment. If the sentiment confidence level exceeds 0.9, indicating a very negative sentiment, the comment will be automatically removed.
 
 # API Endpoint
 API URL: [Cloud Run Text Classification](https://text-classification-service-ztd22w7ixa-et.a.run.app).
 
 |Endpoint|Menthod|Description|
 |----|-----|-------|
-|/predict_sentiment|GET|Predicts the sentiment of a user-inserted comment. If confidence is >= 9.5, the comment is flagged for removal.|
+|/predict_sentiment|GET|Predicts the sentiment of a user-inserted comment. If confidence is >= 0.9, the comment is flagged for removal.|
 
 # Deployment
 **Services:**
