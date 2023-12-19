@@ -27,11 +27,7 @@ import tensorflow as tf
 
 # install .env
 from dotenv import load_dotenv
-# dotenv_path = os.path.join(os.path.dirname(__file__), 'Backend', '.env')
-# load_dotenv(dotenv_path)
 load_dotenv()
-# %load_ext dotenv
-# %dotenv Backend/.env
 
 # In[4]:
 
@@ -208,31 +204,10 @@ app = Flask(__name__)
 
 @app.route('/predict_sentiment/<string:userId>', methods=['GET'])
 def predict_sentiment_endpoint(userId):
-
-    print(f"masuk def predict_sentiment_endpoint")
-
-    # auth_header = request.headers.get('Authorization')
-
-    # if auth_header and auth_header.startswith('Bearer '):
-
-        # print(f"if auth_header and auth_header.startswith('Bearer '):")
-
-        # # Extract the token from the Authorization header
-        # auth_token = auth_header.split(' ')[1]
-
-        # # Decode the JWT token to access user information
-        # decoded_token = jwt.decode(auth_token, os.getenv("JWT_SECRET_KEY"), algorithms=['HS256'])
-
-        # user_id = decoded_token.get('userId')
-
-        # if user_id:
+    
     result = predict_sentiment(userId)
     print(result)
     return jsonify(result)
-        # else:
-        #     return jsonify({'error': 'userId not found in token'}), 401
-    # else:
-    #     return jsonify({'error': 'authToken not provided in the Authorization header'}), 401
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888)

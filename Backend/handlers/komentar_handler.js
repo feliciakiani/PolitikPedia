@@ -1,7 +1,6 @@
 const pool = require("../db_server");
 const date = require("date-and-time");
 const authentication = require("./authentication_handler");
-// const axios = require('axios');
 const fetch = require('node-fetch');
 
 const insertKomentar = async (request, h) => {
@@ -28,38 +27,32 @@ const insertKomentar = async (request, h) => {
     await connection.execute(query, [userId, idAnggota, komentar]);
 
     // Get 'authToken' cookie from the request headers
-    // const authToken = request.headers.cookie;
+    const authToken = request.headers.cookie;
 
-    // if (authToken && authToken.includes("authToken=")) {
-    //   const token = request.state.authToken;
+    if (authToken && authToken.includes("authToken=")) {
+      const token = request.state.authToken;
 
-    const sentimentResult = await callSentimentAnalysis(userId);
+      const sentimentResult = await callSentimentAnalysis(userId);
 
-    const { comment_id, confidence } = sentimentResult;
+      const { comment_id, confidence } = sentimentResult;
 
-    // Check sentiment analysis
-    if (confidence >= 0.95) {
-      await deleteKomentar(comment_id);
-      return h.response({ message: "Komentar tidak pantas" }).code(406);
+      // Check sentiment analysis
+      if (confidence >= 0.95) {
+        await deleteKomentar(comment_id);
+        return h.response({ message: "Komentar tidak pantas" }).code(406);
+      }
     }
-    // }
 
-    return h.response({ 
-      message: "Input Komentar Berhasil",
-      comment_id: comment_id,
-      comment: komentar,
-      confidence: confidence
-   }).code(200);
+    return h.response({ message: "Input Komentar Berhasil" }).code(200);
   } catch (error) {
     console.error("Error inserting data:", error);
     return h.response({ error: "Internal Server Error" }).code(500);
   }
-};
+}; 
 
 const callSentimentAnalysis = async (userId) => {
   try {
-    console.log("----masuk callSentimentAnalysis----");
-    const flaskServerUrl = 'https://text-classification-service-ztd22w7ixa-et.a.run.app';
+    const flaskServerUrl = 'http://192.168.1.55:8888';
     const response = await fetch(`${flaskServerUrl}/predict_sentiment/${userId}`, {
       method: 'GET',
     });
@@ -73,28 +66,9 @@ const callSentimentAnalysis = async (userId) => {
     return data;
   } catch (error) {
     console.error('Error performing sentiment analysis:', error);
-    // Log the complete error object for more details
     console.error(error);
   }
 };
-
-
-// const callSentimentAnalysis = async (token) => {
-//   try {
-//     console.log("masuk callSentimentAnalysis");
-//     const flaskServerUrl = 'http://192.168.1.55:8888';
-//     const response = axios.get(`${flaskServerUrl}/predict_sentiment`, {
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-
-//     console.log('Sentiment analysis response:', response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.error('Error performing sentiment analysis:', error);
-//   }
-// };
 
 const deleteKomentar = async (commentId) => {
   try {
