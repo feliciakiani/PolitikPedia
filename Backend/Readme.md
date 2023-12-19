@@ -37,7 +37,7 @@ For enhanced user engagement and moderation, PolitikPedia triggers email notific
 
 # How to Run Local
 1. Clone the repository `git clone https://github.com/feliciakiani/PolitikPedia.git`.
-2. Make .env file inside PolitikPedia/Backend with your own data (there is a .env.example that let you know which variable and data you need to fill up).
+2. Create a .env file inside PolitikPedia/Backend with your own data. Refer to .env.example for the required variables and data.
 3. Change to `host: 'localhost',` in PolitikPedia/Backend/server.js on line 17.
 4. Open a terminal and go to PolitikPedia/Backend: `cd Backend`.
 5. Type `npm install`.
