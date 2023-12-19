@@ -27,13 +27,13 @@ const insertKomentar = async (request, h) => {
     await connection.execute(query, [userId, idAnggota, komentar]);
 
     // Sentiment Analysis Endpoint
-    const sentimentResult = await callSentimentAnalysis(userId);
-    const { comment_id, confidence: confidence_sentiment } = sentimentResult;
+    // const sentimentResult = await callSentimentAnalysis(userId);
+    // const { comment_id, confidence: confidence_sentiment } = sentimentResult;
 
-    if (confidence_sentiment >= 0.90) {
-      await deleteKomentar(comment_id);
-      return h.response({ message: "Komentar tidak pantas" }).code(406);
-    }
+    // if (confidence_sentiment >= 0.90) {
+    //   await deleteKomentar(comment_id);
+    //   return h.response({ message: "Komentar tidak pantas" }).code(406);
+    // }
 
     // Spam Detection Endpoint
     const spamResult = await callSpamDetection(userId);
