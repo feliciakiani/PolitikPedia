@@ -27,19 +27,19 @@ const insertKomentar = async (request, h) => {
     await connection.execute(query, [userId, idAnggota, komentar]);
 
     // Sentiment Analysis Endpoint
-    // const sentimentResult = await callSentimentAnalysis(userId);
-    // const { comment_id, confidence: confidence_sentiment } = sentimentResult;
+    const sentimentResult = await callSentimentAnalysis(userId);
+    const { comment_id, confidence: confidence_sentiment } = sentimentResult;
 
-    // if (confidence_sentiment >= 0.90) {
-    //   await deleteKomentar(comment_id);
-    //   return h.response({ message: "Komentar tidak pantas" }).code(406);
-    // }
+    if (confidence_sentiment >= 0.90) {
+      await deleteKomentar(comment_id);
+      return h.response({ message: "Komentar tidak pantas" }).code(406);
+    }
 
     // Spam Detection Endpoint
     const spamResult = await callSpamDetection(userId);
     const { predicted_class: predicted_class_spam } = spamResult;
 
-    if (predicted_class_spam = 1) {
+    if (predicted_class_spam === 1) {
       await deleteKomentar(comment_id);
       return h.response({ message: "Spam terdeteksi" }).code(406);
     }
@@ -79,7 +79,7 @@ const callSentimentAnalysis = async (userId) => {
 
 const callSpamDetection = async (userId) => {
   try {
-    const flaskServerUrl = 'http://192.168.1.56:8888';
+    const flaskServerUrl = 'http://192.168.100.90:8888';
     const response = await fetch(`${flaskServerUrl}/spam_detection/${userId}`, {
       method: 'GET',
     });
