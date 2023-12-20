@@ -44,6 +44,15 @@ This dataset and the other resource can be used for free, but if you want to pub
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 ## Dataset-keywords
+Here our team provide dataset that are multi labeled for keywords detection language. The data set contain information as follows :
+
+* **text** : Indonesian Sentences;
+* **Kata_kunci** : label that are related to the text;
+
+for each text has been labeled to corresponding keywords, for example `Pemerintahan melakukan pembicaraan untuk memulihkan hubungan internasional.` and there are multi labels labeled to the text `Pemerintahan, melakukan, pembicaraan`
+
+## More detail
+The dataset is entirely in Indonesian and pertains to the issue of politics. The labels are also balanced between non-political and political themes. This dataset was created by our capstone team, and we sincerely apologize if there is a mistake.
 
 ## Dataset-semantic
 
