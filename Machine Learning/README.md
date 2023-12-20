@@ -19,7 +19,9 @@ This project has 4 machine learning models. Text classification, semantic search
 - [License](#license)
 
 ## Project_Features
-- 
+- Complete Data preprocessing for any indonesian text dataset that removed unecessary character, using stemming, and using stopwords
+- Various Indonesian text Dataset especially politics
+- 4 models and some additional models that are ready
 
 ## Installation
 
