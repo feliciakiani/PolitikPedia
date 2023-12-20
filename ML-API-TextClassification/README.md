@@ -14,7 +14,10 @@ API URL: [Cloud Run Text Classification](https://text-classification-service-ztd
 3. Cloud SQL: manage relational databases effortlessly on the cloud.
 
 # How to Run Local
-1. Clone the repository: `git clone https://github.com/feliciakiani/PolitikPedia.git`.
+1. Clone the repository.
+    ```
+    git clone https://github.com/feliciakiani/PolitikPedia.git
+    ```
 2. Create a .env file inside PolitikPedia/ML-API-TextClassification with your own data. Refer to .env.example for the required variables and data.
 3. Run PolitikPedia/ML-API-TextClassification/ETL.py.
 4. Copy the base endpoint URL provided after running ETL.py. Update the flaskServerUrl in PolitikPedia/Backend/handlers/komentar_handler.js on line 55 with this URL.

@@ -36,10 +36,16 @@ When a user login, a cookie will be created for 24 hours to remember their auth 
 For enhanced user engagement and moderation, PolitikPedia triggers email notifications from politikpedia.capstone@gmail.com for reported comments and user bans, ensuring timely communication and effective management of platform activities.
 
 # How to Run Local
-1. Clone the repository `git clone https://github.com/feliciakiani/PolitikPedia.git`.
+1. Clone the repository.
+    ```
+    git clone https://github.com/feliciakiani/PolitikPedia.git
+    ```
 2. Create a .env file inside PolitikPedia/Backend with your own data. Refer to .env.example for the required variables and data.
 3. Change to `host: 'localhost',` in PolitikPedia/Backend/server.js on line 17.
-4. Open a terminal and go to PolitikPedia/Backend: `cd Backend`.
+4. Open a terminal and navigate to PolitikPedia/Backend.
+    ```
+    cd PolitikPedia/Backend
+    ```
 5. Type `npm install`.
 6. Type `node server.js`.
 7. It will run on http://127.0.0.1:8080 or localhost:8080.
