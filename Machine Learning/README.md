@@ -1,10 +1,15 @@
-Machine Learning
-# Project Title
+# Machine Learning
 
-[![Build Status](your_build_status_badge)](link_to_build_status)
-[![License](your_license_badge)](link_to_license)
+This project has 4 machine learning models. Text classification, semantic search, keyword recommendataion, and spam classification. we are building the model using tensorflow and keras library. 
 
-Short project description goes here.
+|Models|Output|Description|
+|----|-----|-------|
+|Text_Classification|binary with confidence score|Predicts the sentimen of a indonesian text. If confidence is >= 0.5, the text is considered as negative.|
+|Spam_Classification|binary with confidence score|Predicts the spam of a indonesian text. If confidence is >= 0.5, the text is considered as spam.|
+|semantic search|text similarity|predicts the user intent in search engine|
+|Keyword recommendation|text similarity|Predicts the keyword that user passed in the text format|
+
+#Text Classification
 
 ## Table of Contents
 
