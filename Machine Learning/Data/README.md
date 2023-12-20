@@ -4,7 +4,7 @@
 - [id-multi-label-hate-speech-and-abusive-language-detection](#id-multi-label-hate-speech-and-abusive-language-detection)
 - [Dataset-keywords](#Dataset-keywords)
 - [Dataset-semantic](#Dataset-semantic)
-- [Dataset-sentences](#Dataset-sentences)
+- [Dataset-sentences](#Dataset-Spam)
 
 ## id-multi-label-hate-speech-and-abusive-language-detection
 Here we provide our dataset for multi-label hate speech and abusive language detection in the Indonesian Twitter. The main dataset can be seen at **re_dataset** with labels information as follows:
@@ -65,3 +65,12 @@ for each question has been labeled to corresponding intent, for example `Bagaima
 The dataset is entirely in Indonesian and pertains to the issue of politics. In addition, the intent labels are not balanced between non-political and political themes, therefore expect to be slanted toward the politics theme. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors because the dataset's restrictions are difficult on this one, especially in the indonesian language and politics topic.
 
 ## Dataset-Spam
+Here our team provide dataset that are binary labeled for spam detection. The data set contain information as follows :
+
+* **Teks** : Indonesian spam Sentences;
+* **label** : label that are classified as spam;
+
+For each text, relevant labels have been assigned, such as 'Maaf, pesan Anda belum terkirim. Please return in a few days. Terimakasih' and the label '1' indicate that the text is spam, whereas the label '0' indicates that the material is not spam.
+
+## More detail
+The dataset is entirely in Indonesian and commonly SMS spam. The labels are very balanced, but the limitations are that it solely contains SMS spam text. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors.
