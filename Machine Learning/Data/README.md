@@ -50,8 +50,18 @@ Here our team provide dataset that are multi labeled for keywords detection lang
 for each text has been labeled to corresponding keywords, for example `Pemerintahan melakukan pembicaraan untuk memulihkan hubungan internasional.` and there are multi labels labeled to the text `Pemerintahan, melakukan, pembicaraan`
 
 ## More detail
-The dataset is entirely in Indonesian and pertains to the issue of politics. The labels are also balanced between non-political and political themes. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors.
+The dataset is entirely in Indonesian and pertains to the issue of politics. The labels are also balanced between non-political and political themes. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors because the dataset's restrictions are difficult on this one, especially in the indonesian language and politics topic.
 
 ## Dataset-semantic
+Here our team provide dataset that are labeled for semantic search. The data set contain information as follows :
 
-## Dataset-sentences
+* **ID** : the example user id that generated the question;
+* **Pertanyaan** : Question that are written by the user;
+* **Pencarian** : the intent of the user;
+
+for each question has been labeled to corresponding intent, for example `Bagaimana sistem pemilu di Indonesia?` and there is labels labeled to the text `Partai Politik`
+
+## More detail
+The dataset is entirely in Indonesian and pertains to the issue of politics. In addition, the intent labels are not balanced between non-political and political themes, therefore expect to be slanted toward the politics theme. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors because the dataset's restrictions are difficult on this one, especially in the indonesian language and politics topic.
+
+## Dataset-Spam
