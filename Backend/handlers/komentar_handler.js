@@ -79,7 +79,7 @@ const callSentimentAnalysis = async (userId) => {
 
 const callSpamDetection = async (userId) => {
   try {
-    const flaskServerUrl = 'http://192.168.100.90:8888';
+    const flaskServerUrl = 'https://spam-detection-service-ztd22w7ixa-et.a.run.app';
     const response = await fetch(`${flaskServerUrl}/spam_detection/${userId}`, {
       method: 'GET',
     });

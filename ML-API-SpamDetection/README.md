@@ -2,7 +2,7 @@
 This API is designed exclusively for the Machine Learning model using Flask Framework. It automatically processes comments submitted through PolitikPedia's backend service. The API requires a user ID parameter to identify the user making the comment. The ML model predicts whether a comment is spam or not. If the predicted class equals 1, indicating spam, the comment is automatically flagged for removal.
 
 # API Endpoint
-API URL: 
+API URL: [Cloud Run Spam Detection](https://spam-detection-service-ztd22w7ixa-et.a.run.app).
 
 |Endpoint|Menthod|Description|
 |----|-----|-------|
