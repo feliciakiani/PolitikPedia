@@ -33,12 +33,10 @@ For text normalization in our experiment, we built typo and slang words dictiona
 Furthermore, we also built abusive lexicon list named **abusive.csv** that can be used for feature extraction.
 
 ## More detail
-If you want to know how this dataset was build (include the explanation of crawling and annotation technique) and how we did our experiment in multi-label hate speech and abusive language detection in Indonesian language using this dataset, you can read our paper in here: https://www.aclweb.org/anthology/W19-3506.pdf.
+There are three data in id-multi-label-hate-speech-and-abusive-language-detection. abusive.csv, data.csv, and new_kamusalay.csv are examples of CSV files. as stated in the preceding description. You can attempt to preprocess the data on your own. We've included the code, which is called data_preprocessing.ipynb.
 
-## How to cite us
-This dataset and the other resource can be used for free, but if you want to publish paper/publication using this dataset, please cite this publication:
+utilize preprocessed_indonesian_toxic_tweet_fixed.csv files for text_classification if you want to utilize the finished dataset that has already been preprocessed using regex, stemmer, and stopwords.
 
-**Muhammad Okky Ibrohim and Indra Budi. 2019. Multi-label Hate Speech and Abusive Language Detection in Indonesian Twitter. In *ALW3: 3rd Workshop on Abusive Language Online, 46-57*.** (Every paper template may have different citation writting. For LaTex user, you can see **citation.bib**).
 
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -52,7 +50,7 @@ Here our team provide dataset that are multi labeled for keywords detection lang
 for each text has been labeled to corresponding keywords, for example `Pemerintahan melakukan pembicaraan untuk memulihkan hubungan internasional.` and there are multi labels labeled to the text `Pemerintahan, melakukan, pembicaraan`
 
 ## More detail
-The dataset is entirely in Indonesian and pertains to the issue of politics. The labels are also balanced between non-political and political themes. This dataset was created by our capstone team, and we sincerely apologize if there is a mistake.
+The dataset is entirely in Indonesian and pertains to the issue of politics. The labels are also balanced between non-political and political themes. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors.
 
 ## Dataset-semantic
 
