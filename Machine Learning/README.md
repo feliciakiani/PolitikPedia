@@ -15,8 +15,6 @@ This project has 4 machine learning models. Text classification, semantic search
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Examples](#examples)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -26,10 +24,18 @@ This project has 4 machine learning models. Text classification, semantic search
 
 ## Installation
 
-Provide instructions on how to install your project. Include any dependencies and commands needed.
+### Prerequisites
+
+- Python 3
+- Jupyter Notebook
+
+### Clone the Repository
 
 ```bash
-npm install your-package
+`git clone https://github.com/feliciakiani/PolitikPedia.git`.
+cd Machine Learning
+pip install -r requirements.txt
+
 
 
 Replace the placeholder text like `[![Build Status](your_build_status_badge)](link_to_build_status)` with actual URLs or content specific to your project. Feel free to add or modify sections according to your project's needs.
