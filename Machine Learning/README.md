@@ -18,7 +18,7 @@ This project has 4 machine learning models. Text classification, semantic search
 - [Contributing](#contributing)
 - [License](#license)
 
-## Project Features
+## Project_Features
 - 
 
 ## Installation
