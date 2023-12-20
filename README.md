@@ -25,5 +25,4 @@ An application that serves as Indonesia's government wikipedia with detailed par
 * Sign Up / Login (With Authentication and Authorization)
 * Information about political parties, politicians, and executive candidates
 * Comment section with spam detection and text classification
-* Search bar with semantic search and keyword recommendation
 * Favourite
