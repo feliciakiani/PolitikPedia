@@ -74,3 +74,7 @@ For each text, relevant labels have been assigned, such as 'Maaf, pesan Anda bel
 
 ## More detail
 The dataset is entirely in Indonesian and commonly SMS spam. The labels are very balanced, but the limitations are that it solely contains SMS spam text. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors.
+
+## License
+
+This project is licensed under the terms of the [MIT License](../../LICENSE.txt).
