@@ -13,8 +13,8 @@ API URL: [Cloud Run Backend](https://backend-ztd22w7ixa-et.a.run.app).
 |/user/banned|POST, PUT|Admin can ban a user|
 |/anggota_partai|GET|Retrieve all members of political parties or filtered by individual ID or Partai ID|
 |/partai|GET|Retrieve all political parties or filtered by party ID|
-|/fav_anggota_partai|GET, POST, DELETE|Users can favourite / disfavorite their own choice of anggota partai|
-|/fav_partai|GET, POST, DELETE|Users can favourite / disfavorite their own choice of partai|
+|/fav_anggota_partai|GET, POST, DELETE|Users can favourite / disfavorite their own choice of political party members|
+|/fav_partai|GET, POST, DELETE|Users can favourite / disfavorite their own choice of political parties|
 |/komentar|GET, POST|Users can read and insert comments|
 |/komentar/like|POST, DELETE|Users can like a comment of other user|
 |/komentar/dislike|POST, DELETE|Users can dislike a comment of other user|
