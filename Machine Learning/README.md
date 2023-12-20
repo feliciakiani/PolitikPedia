@@ -28,8 +28,8 @@ This project has 4 machine learning models. Text classification, semantic search
 - after clonning the git, run one of the models ipynb files
 - text_classification_V2 features Sentimen analysis that predicts various sentimen indonesian words. the code are using manual embedding or pretrained embedding also RNN or CNN deep learning model and you can choose between one of them. it has also 3 additional unsupervised machine learning model in the end that has each own features
 - Spam_Detection features prediction of text spam of indonesian words. We are using a simple manual embedding and DNN deep learning model.
-- Semantic_search features prediction of text spam of
-- 
+- Semantic_search features predict the intended text passed by user. it is commonly used in search engine. We are using cosine similarity metrics to see the similarity words in each text.
+- Keywords recommendation predict keyword that are passed by users to enchance content searching in the database. We are using cosine similarity metrics to see the similarity words in each text.
 ### Prerequisites
 
 - Python 3
