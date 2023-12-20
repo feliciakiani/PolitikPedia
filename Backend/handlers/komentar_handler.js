@@ -28,19 +28,28 @@ const insertKomentar = async (request, h) => {
 
     // Sentiment Analysis Endpoint
     const sentimentResult = await callSentimentAnalysis(userId);
-    const { comment_id, confidence } = sentimentResult;
+    const { comment_id, confidence: confidence_sentiment } = sentimentResult;
 
-    // Check sentiment analysis
-    if (confidence >= 0.90) {
+    if (confidence_sentiment >= 0.90) {
       await deleteKomentar(comment_id);
       return h.response({ message: "Komentar tidak pantas" }).code(406);
+    }
+
+    // Spam Detection Endpoint
+    const spamResult = await callSpamDetection(userId);
+    const { predicted_class: predicted_class_spam } = spamResult;
+
+    if (predicted_class_spam === 1) {
+      await deleteKomentar(comment_id);
+      return h.response({ message: "Spam terdeteksi" }).code(406);
     }
 
     return h.response({ 
       message: "Input Komentar Berhasil",
       comment_id: comment_id,
       comment: komentar,
-      confidence: confidence
+      confidence_sentiment: confidence_sentiment,
+      predicted_class_spam: predicted_class_spam
    }).code(200);
 
   } catch (error) {
@@ -64,6 +73,25 @@ const callSentimentAnalysis = async (userId) => {
     return data;
   } catch (error) {
     console.error('Error performing sentiment analysis:', error);
+    console.error(error);
+  }
+};
+
+const callSpamDetection = async (userId) => {
+  try {
+    const flaskServerUrl = 'http://192.168.100.90:8888';
+    const response = await fetch(`${flaskServerUrl}/spam_detection/${userId}`, {
+      method: 'GET',
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error performing spam detection:', error);
     console.error(error);
   }
 };

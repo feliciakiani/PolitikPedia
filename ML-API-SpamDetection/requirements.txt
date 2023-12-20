@@ -1,0 +1,14 @@
+blinker==1.4
+
+PySastrawi
+pandas
+nltk
+mysql-connector-python
+TextBlob
+
+keras
+tensorflow
+
+Flask
+gunicorn
+python-dotenv

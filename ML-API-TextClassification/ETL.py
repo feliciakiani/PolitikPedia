@@ -204,7 +204,7 @@ app = Flask(__name__)
 
 @app.route('/predict_sentiment/<string:userId>', methods=['GET'])
 def predict_sentiment_endpoint(userId):
-    
+
     result = predict_sentiment(userId)
     print(result)
     return jsonify(result)
