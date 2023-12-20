@@ -13,17 +13,21 @@ This project has 4 machine learning models. Text classification, semantic search
 
 ## Table of Contents
 
-- [Features](#features)
+- [Project_Features](#project_features)
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
-
-- List key features of your project.
+## Project Features
+- 
 
 ## Installation
 
+- after clonning the git, run one of the models ipynb files
+- text_classification_V2 features Sentimen analysis that predicts various sentimen indonesian words. the code are using manual embedding or pretrained embedding also RNN or CNN deep learning model and you can choose between one of them. it has also 3 additional unsupervised machine learning model in the end that has each own features
+- Spam_Detection features prediction of text spam of indonesian words. We are using a simple manual embedding and DNN deep learning model.
+- Semantic_search features prediction of text spam of
+- 
 ### Prerequisites
 
 - Python 3
@@ -32,7 +36,7 @@ This project has 4 machine learning models. Text classification, semantic search
 ### Clone the Repository
 
 ```bash
-`git clone https://github.com/feliciakiani/PolitikPedia.git`.
+git clone https://github.com/feliciakiani/PolitikPedia.git.
 cd Machine Learning
 pip install -r requirements.txt
 
