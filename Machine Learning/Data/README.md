@@ -1,5 +1,11 @@
 # Data 
 
+## Table of contents
+- [id-multi-label-hate-speech-and-abusive-language-detection](#id-multi-label-hate-speech-and-abusive-language-detection)
+- [Dataset-keywords](#Dataset-keywords)
+- [Dataset-semantic](#Dataset-semantic)
+- [Dataset-sentences](#Dataset-sentences)
+
 ## id-multi-label-hate-speech-and-abusive-language-detection
 Here we provide our dataset for multi-label hate speech and abusive language detection in the Indonesian Twitter. The main dataset can be seen at **re_dataset** with labels information as follows:
 * **HS** : hate speech label;
