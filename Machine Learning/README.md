@@ -46,9 +46,9 @@ This project has 4 machine learning models. Text classification, semantic search
 git clone https://github.com/feliciakiani/PolitikPedia.git.
 cd Machine Learning
 pip install -r requirements.txt
+```
 
+## License
 
+This project is licensed under the terms of the [MIT License](../license.txt).
 
-Replace the placeholder text like `[![Build Status](your_build_status_badge)](link_to_build_status)` with actual URLs or content specific to your project. Feel free to add or modify sections according to your project's needs.
-
-Once you've customized the template, save it as README.md in your project's root directory and push the changes to your GitHub repository.
