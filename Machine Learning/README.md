@@ -50,5 +50,5 @@ pip install -r requirements.txt
 
 ## License
 
-This project is licensed under the terms of the [MIT License](../license.txt).
+This project is licensed under the terms of the [MIT License](../LICENSE.txt).
 
