@@ -77,7 +77,7 @@ const insertBannedUser = async (request, h) => {
 const updateBannedUser = async (request, h) => {
     try {
         const { userEmail: adminEmail } = request.user || {};
-        if (adminEmail != 'politikpedia.capstone@gmail.com') {
+        if (adminEmail != process.env.ADMIN_EMAIL) {
             return h.response({ error: "Forbidden!" }).code(403);
         }
 
