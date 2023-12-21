@@ -1,8 +1,7 @@
 # PolitikPedia
 Bangkit 2023 Batch 2 Capstone Project (CH2-PS326).
 
-<img src="https://drive.google.com/uc?export=download&id=1okPqLsYAz-Bqp-jd_K1PEdGjowJUMmxI" alt="Logo PolitikPedia" width="30%">
-
+<img src="https://drive.google.com/uc?export=download&id=16iKj_WsrO8Vl1ZHyBdBQWUjBGyD-RjyL" alt="Logo PolitikPedia" width="30%">
 
 # About
 An application that serves as Indonesia's government wikipedia with detailed party profiles, including their vision, mission, history, leadership, and ideology.
@@ -26,3 +25,13 @@ An application that serves as Indonesia's government wikipedia with detailed par
 * Information about political parties, politicians, and executive candidates
 * Comment section with spam detection and text classification
 * Favourite
+
+# App Documentation
+App UI Documentation: [PolitikPedia Android UI](https://www.figma.com/file/0sopfCqSUCxavq8NJ80qM2/Politik-Pedia?type=design&node-id=0%3A1&mode=design&t=itgVdGMbW85lwvvR-1)
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <img src="https://drive.google.com/uc?export=download&id=1igVtYo_XIKV2aLqNabEhT8LOdYqs4Fgi" alt="Homepage Page PolitikPedia" width="50%">
+  <img src="https://drive.google.com/uc?export=download&id=13RqXhdxwP0sM8k2Jj5QmKYh70BhzOEa1" alt="Register Page PolitikPedia" width="50%">
+  <img src="https://drive.google.com/uc?export=download&id=1JWGFPjyLaAo00Oh1n5JGzgw2ZXXNOalH" alt="Login Page PolitikPedia" width="50%">
+  <img src="https://drive.google.com/uc?export=download&id=1YmDoQA9OhzIISZ19LBfJycOm5X__99Zn" alt="Anggota Partai Page PolitikPedia" width="50%">
+</div>
