@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_capres"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_capres" />
+
+    <item
+        android:id="@+id/navigation_partai"
+        android:icon="@drawable/partailogo"
+        android:title="@string/title_partai" />
+
+    <item
+        android:id="@+id/navigation_anggota"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/title_anggota" />
+
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/baseline_thumb_up_24"
+        android:title="@string/title_favorite" />
+
+</menu>
