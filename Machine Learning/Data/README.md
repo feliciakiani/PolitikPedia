@@ -70,7 +70,7 @@ Here our team provide dataset that are binary labeled for spam detection. The da
 * **Teks** : Indonesian spam Sentences;
 * **label** : label that are classified as spam;
 
-For each text, relevant labels have been assigned, such as 'Maaf, pesan Anda belum terkirim. Please return in a few days. Terimakasih' and the label '1' indicate that the text is spam, whereas the label '0' indicates that the material is not spam.
+For each text, relevant labels have been assigned, such as 'Maaf, pesan Anda belum terkirim. Please return in a few days. Terimakasih' and the label `1` indicate that the text is spam, whereas the label `0` indicates that the material is not spam.
 
 ## More detail
 The dataset is entirely in Indonesian and commonly SMS spam. The labels are very balanced, but the limitations are that it solely contains SMS spam text. This dataset was created and preprocessed by our capstone team, and we sincerely apologize for any errors.
