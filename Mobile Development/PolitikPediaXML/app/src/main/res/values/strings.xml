@@ -1,0 +1,288 @@
+<resources>
+    <string name="app_name">PolitikPediaXML</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Mau belajar Android, iOS, Machine Learning, Cloud, Front-End, Back-End, dan bidang IT lainnya? Di Dicoding aja!</string>
+    <string name="title_welcome_page">Selamat datang di Dicoding!</string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Masukkan dulu datamu ya</string>
+    <string name="title_login_page">Sudah siap untuk upgrade skill?</string>
+    <string name="name">Nama</string>
+    <string name="firstname">Firstname</string>
+    <string name="message_main_page">Selamat Belajar di Dicoding.</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="email_validation">Maaf, Format Email Tidak Sesuai</string>
+    <string name="password_length">Password Harus Lebih Dari 8 Karakter</string>
+    <string name="wrong_title">Sorry 😭</string>
+    <string name="wrong_message">Your Email or Password is Wrong!</string>
+    <string name="email_taken">Your Email Already Taken</string>
+    <string name="login_success">Login Berhasil</string>
+    <string name="continueLogin">Lanjut</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_capres">Capres Page</string>
+    <string name="title_partai">Partai</string>
+    <string name="title_anggota">Anggota Partai</string>
+    <string name="searchbar_hint">Masukkan kata</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="send">Kirim</string>
+    <string name="politik_ped">Politik Pedia</string>
+    <string name="welcome_word">Selamat Datang, mohon untuk login atau register untuk mengakses aplikasi</string>
+    <string name="mobile_info">“Mobile Information of Political Parties”</string>
+    <string name="welcome_word_signup">Selamat datang kembali !mohon login untuk akses aplikasi</string>
+    <string-array name="data_name">
+        <item>PDI (Partai Demokrasi Indonesia)</item>
+        <item>PAN (Partai Amanat Nasional)</item>
+        <item>HANURA (Partai Hati Nurani Rakyat)</item>
+        <item>PKS (Partai Keadilan Sejahtera)</item>
+        <item>PERINDO (Partai Persatuan Indonesia)</item>
+        <item>PSI (Partai Solidaritas Indoensia)</item>
+        <item>Golkar (Partai Golongan Karya)</item>
+        <item>PBB (Partai Bulan Bintang)</item>
+        <item>Demokrat</item>
+        <item>PKB (Partai Kebangkitan Bangsa)</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>Partai Demokrasi Indonesia Perjuangan (PDI-P) adalah sebuah partai politik Indonesia,
+            dan partai dari Presiden Indonesia saat ini, Joko Widodo, PDI-P saat ini dipimpin oleh
+            Megawati Soekarnoputri, Presiden Kelima Indonesia, dan merupakan putri dari Presiden Pertama
+            Indonesia Soekarno. Ideologi partai didasarkan pada filosofi nasional resmi Indonesia, yaitu
+            Pancasila.</item>
+        <item>Partai Amanat Nasional (disingkat: PAN) adalah sebuah partai politik di Indonesia.
+            Asas partai ini adalah Akhlak Politik Berlandaskan Agama yang Membawa Rahmat bagi Sekalian
+            Alam (AD Bab II, Pasal 3 [2]). PAN didirikan oleh Amien Rais pada tanggal 23 Agustus 1998
+            berdasarkan pengesahan Depkeh HAM No. M-20.UM.06.08 tgl. 27 Agustus 2003. Ketua Umum saat
+            ini adalah Zulkifli Hasan. Ketua Majelis Pertimbangan Partai dijabat oleh Hatta Rajasa,
+            Tatong Bara, Yasti Soepredjo Mokoagow, sedangkan Ketua Dewan Kehormatan Partai dijabat oleh
+            Soetrisno Bachir.</item>
+        <item>Partai Hati Nurani Rakyat, atau Partai Hanura, adalah sebuah partai politik di Indonesia.
+            Jenderal TNI (Purn.) Dr. H. Wiranto Merupakan tokoh kunci berdirinya partai. Pada Pemilu
+            2009, partai ini bernomor urut 1.Hanura kembali lolos dalam Pemilu 2014, dan mendapat
+            nomor urut 10.[2] Pada Pemilu 2019, Hanura hadir sebagai peserta pemilu dengan nomor urut 13.
+            Pada Pemilu 2024, Hanura kembali mendapat nomor urut 10</item>
+        <item>Partai Keadilan Sejahtera (PKS) adalah sebuah partai politik berbasis Islam di Indonesia.
+            Partai ini bercikal bakal dari penentangan sejumlah tokoh Islam terhadap kebijakan
+            Presiden RI ke-2, Suharto yang mengharuskan agar tiap-tiap ormas menjadikan Pancasila sebagai
+            asas mereka.[11][12] Dari penentangan ini lahirlah gerakan-gerakan tarbiyah.Gerakan-gerakan
+            tarbiyah ini lalu membentuk lembaga dakwah kampus yang kemudian menjadi asal usul berdirinya
+            Partai Keadilan pada 20 Juli 1998 pasca lengsernya pemerintahan Suharto. Partai Keadilan
+            kemudian bertransformasi menjadi Partai Keadilan Sejahtera pada tanggal 20 April 2002 akibat
+            gagal memenuhi ambang batas parlemen sebesar 2%.</item>
+        <item>Partai Persatuan Indonesia atau biasa disingkat Partai Perindo adalah sebuah partai politik
+            di Indonesia. Partai ini didirikan oleh Hary Tanoesoedibjo, pengusaha dan pemilik perusahaan
+            konglomerat multinasional MNC Group. Awalnya Perindo adalah organisasi kemasyarakatan yang
+            dideklarasikan pada 24 Februari 2013 di Istora Senayan, Jakarta.[2][3] Perindo kemudian
+            didirikan sebagai partai politik pada tanggal 8 Oktober 2014[4] dan dideklarasikan pada
+            7 Februari 2015 di Jakarta International Expo, Kemayoran, Jakarta.[5] Pada acara deklarasi
+            tersebut, dihadiri oleh beberapa petinggi Koalisi Merah Putih (KMP), seperti Ketua Umum Partai
+            Golkar Aburizal Bakrie, Ketua Umum Partai Amanat Nasional Hatta Rajasa, Presiden Partai Keadilan
+            Sejahtera Anis Matta, dan Ketua Umum Partai Persatuan Pembangunan Djan Faridz. Selain itu juga
+            hadir Wiranto, Ketua Umum Hanura.</item>
+        <item>Partai Solidaritas Indonesia (disingkat PSI) adalah partai politik di Indonesia yang didirikan
+            pasca Pemilu tahun 2014.[4] Partai ini diketuai oleh Kaesang Pangarep sejak 25 September 2023.
+            [5] Partai ini cenderung mengambil target partisipan kalangan anak muda, perempuan, dan lintas
+            agama.[6] PSI didirikan untuk menggalang gerakan politik yang dilandasi oleh rasa solidaritas
+            untuk kemanusiaan. Hal tersebut dikarenakan partai ini meyakini bahwa yang lebih penting dari
+            politik adalah kemanusiaan.</item>
+        <item>Partai Golongan Karya atau secara umum disingkat dengan Partai Golkar adalah sebuah partai
+            politik di Indonesia. Didirikan sebagai Sekretariat Bersama Golongan Karya ((Sekber Golkar)
+            pada tahun 1964, dan berpartisipasi untuk pertama kalinya dalam pemilihan umum nasional pada
+            1971 sebagai Golkar (Golongan Karya). Partai Golongan Karya tidak resmi menjadi partai politik
+            hingga tahun 1999, ketika Golkar diperlukan untuk menjadi sebuah partai untuk mengikuti
+            pemilihan.</item>
+        <item>Partai Bulan Bintang (PBB) adalah sebuah partai politik Indonesia berasaskan Islam dan
+            juga sebagai partai penerus Masyumi yang pernah berjaya pada masa Orde Lama. Partai Bulan
+            Bintang didirikan pada 17 Juli 1998.</item>
+        <item>Partai Demokrat atau secara umum disingkat dengan PD adalah sebuah partai politik Indonesia.
+            Partai ini didirikan pada 9 September 2001 dan disahkan pada 27 Agustus 2003. Pendirian partai
+            ini erat kaitannya dengan niat untuk membawa Susilo Bambang Yudhoyono, yang kala itu menjadi
+            Menteri Koordinator bidang Politik dan Keamanan di bawah Presiden Megawati, menjadi presiden.
+            Karena hal inilah, Partai Demokrat terkait kuat dengan figur Yudhoyono.</item>
+        <item>Partai Kebangkitan Bangsa (PKB), adalah sebuah partai politik berideologi Moderat di Indonesia.
+            Partai ini didirikan di Jakarta pada tanggal 23 Juli 1998 (29 Rabiul Awal 1419 Hijriah)
+            yang dideklarasikan oleh para kiai-kiai Nahdlatul Ulama, seperti Munasir Ali, Ilyas Ruhiat,
+            Abdurrahman Wahid, Mustofa Bisri, Zuhdi Fatkur dan Muhith Muzadi.</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/pdi</item>
+        <item>@drawable/pan</item>
+        <item>@drawable/hanura</item>
+        <item>@drawable/pks</item>
+        <item>@drawable/perindo</item>
+        <item>@drawable/psi</item>
+        <item>@drawable/golkar</item>
+        <item>@drawable/pbb</item>
+        <item>@drawable/demokrat</item>
+        <item>@drawable/pkb</item>
+    </integer-array>
+    <string-array name="data_name_capres">
+        <item>Anies Baswedan dan Muhaimin Iskandar</item>
+        <item>Ganjar Pranowo dan Mahfud MD</item>
+        <item>Prabowo Subianto dan Gibran Rakabuming</item>
+    </string-array>
+    <string-array name="data_capres_description">
+        <item>Nama Lengkap            : Anies Rasyid Baswedan
+              Tempat, Tanggal Lahir  : Kuningan, 7 Mei 1969
+              Usia                           : 54 tahun
+              Karir                           :
+              Rektor Universitas Paramadina (2007-2013)
+              Menteri Pendidikan dan Kebudayaan (2014-2016)
+              Gubernur DKI Jakarta (2017-2022)
+              Nama Lengkap             : Abdul Muhaimin Iskandar
+              Tempat, Tanggal Lahir   : Jombang, 24 September 1966
+              Usia                            : 57 tahun
+              Karir                            :
+              Wakil Ketua DPR RI (2004-2009)
+              Menteri Tenaga Kerja dan Transmigrasi (2009-2014)
+              Ketua Umum PKB (2005-2010/2019-2024)
+              Wakil Ketua DPR RI (2019-2024)
+        </item>
+        <item>
+            Nama Lengkap               : Ganjar Pranowo
+            Tempat, Tanggal Lahir      : Karang Anyar, 28 Oktober 1968
+            Usia                               : 54 tahun
+            Karir                               :
+            Anggota DPR RI Fraksi PDI Perjuangan (2004-2009 dan 2009-2013)
+            Gubernur Jawa Tengah(2013-2023)
+            Nama Lengkap                   : Mohammad Mahfud Mahmodin
+            Tempat, Tanggal Lahir         : Madura, 13 Mei 1957
+            Usia                                  : 66 tahun
+            Karir                                  :
+            Menteri Pertahanan Republik Indonesia (2000-2001)
+            Menteri Kehakiman dan Hak Asasi Manusia (2001-2002)
+            Ketua Mahkamah Konstitusi (2008-2013)
+            Menteri Koordinator Bidang Politik, Hukum dan Keamanan (2019-2024)
+        </item>
+        <item>
+            Nama Lengkap                        : Prabowo Subianto Djojohadikusumo
+            Tempat, Tanggal Lahir              : Jakarta, 17 Oktober 1951
+            Usia                                       : 72 tahun
+            Karir                                       :
+            Panglima Komando Cadangan Strategi TNI Angkatan Darat (1998)
+            Ketua Umum Partai Gerindra (2014-Sekarang)
+            Menteri Pertahanan (2019-2024)
+            Nama Lengkap                      : Gibran Rakabuming Raka
+            Tempat, Tanggal Lahir            : Surakarta, 1 Oktober 1987
+            Usia                                     : 36 tahun
+            Karir                                     :
+            Wali Kota Solo (2021-2024)
+        </item>
+    </string-array>
+    <integer-array name="data_photo_capres">
+        <item>@drawable/anis_muhaimin</item>
+        <item>@drawable/ganjar_mahfud</item>
+        <item>@drawable/prabowo_gibran</item>
+    </integer-array>
+
+    <string-array name="data_name_anggota">
+        <item>Dr. (H.C.) PUAN MAHARANI</item>
+        <item>H. LODEWIJK F. PAULUS</item>
+        <item>H. IRMAWAN, S.Sos., M.M.</item>
+        <item>H. RUSLAN M. DAUD, S.E., M.A.P.</item>
+        <item>Prof. Dr. H. Muhammad Amien Rais, M.A., Ph.D.</item>
+        <item>Soetrisno Bachir</item>
+        <item>Jenderal TNI (Purn.) Dr. H. Wiranto S.H. S.I.P. M.M</item>
+        <item>Dr. (H.C.) H. Oesman Sapta Odang Dt. Bandaro Sutan Nan Kayo </item>
+    </string-array>
+    <string-array name="data_nama_partai_anggota">
+        <item>PDIP</item>
+        <item>PDIP</item>
+        <item>Partai Kebangkitan Bangsa</item>
+        <item>Partai Kebangkitan Bangsa</item>
+        <item>PAN</item>
+        <item>PAN</item>
+        <item>HANURA</item>
+        <item>HANURA</item>
+    </string-array>
+    <string-array name="data_capres_anggota">
+        <item>Tempat Lahir / Tgl Lahir: Jakarta / 06 September 1973
+Agama: Islam
+Riwayat Pekerjaan
+DPR RI, Sebagai: Ketua. Tahun: 2019 - 2024
+Kemenko Bidang PMK, Sebagai: Menteri Koordinator Bidang PMK. Tahun: 2014 - 2019
+Fraksi PDI Perjuangan DPR RI, Sebagai: Ketua. Tahun: 2012 - 2014
+Komisi I DPR RI, Sebagai: Anggota. Tahun: 2012 - 2014
+Fraksi PDI Perjuangan DPR RI, Sebagai: Ketua I. Tahun: 2009 - 2012
+Komisi VI DPR RI, Sebagai: Anggota. Tahun: 2009 - 2012
+BKSAP DPR RI , Sebagai: Anggota. Tahun: 2009 - 2014
+        Riwayat Organisasi
+PDI Perjuangan , Sebagai: Ketua Panitia Rakernas PDI Perjuangan IV. Tahun: 2014 -
+PDI Perjuangan, Sebagai: Ketua Panitia Rakernas PDI Perjuangan III. Tahun: 2013 -
+PDI Perjuangan, Sebagai: Ketua Panitia Rakernas PDI Perjuangan II. Tahun: 2012 -
+PDI Perjuangan , Sebagai: Ketua Panitia Rakernas PDI Perjuangan I. Tahun: 2011 -
+DPP PDI Perjuangan, Sebagai: Ketua Bidang Politik dan Hubungan Antar lembaga. Tahun: 2010 - 2015
+PDI Perjuangan, Sebagai: Ketua Pelaksana Rakornas. Tahun: 2010 -
+PDI Perjuangan , Sebagai: Ketua Panitia Kongres. Tahun: 2010 -
+DPP PDI Perjuangan , Sebagai: Ketua Bidang Pemberdayaan Perempuan dan Mssyarakat. Tahun: 2007 - 2010
+DPP KNPI , Sebagai: Bidang Luar Negeri. Tahun: 2006 -</item>
+        <item>Tempat Lahir / Tgl Lahir: Manado / 27 Juli 1957
+Agama: Islam
+Riwayat Pendidikan
+SD , SD MUHAMMADIYAH. Tahun: 1964 - 1970
+SMP , SMPN 2 MANADO. Tahun: 1970 - 1973
+SMA iIPA, SMA N PALU. Tahun: 1973 - 1976
+S1 DARAT, AKABRI. Tahun: 1976 - 1981Riwayat Pekerjaan
+Dankodiklat TNI AD, Sebagai: . Tahun: 2013 - 2015
+Pangdam I Bukit Barisan, Sebagai: . Tahun: 2011 - 2013
+Danjen Kopassus, Sebagai: . Tahun: 2009 - 2011
+Dirlat Kodiklat TNI AD, Sebagai: . Tahun: 2007 - 2009
+Danrem 052 Wijayakrama Kodam Jaya, Sebagai: . Tahun: 2006 - 2007
+Danrindam I Bukit Barisan, Sebagai: . Tahun: 2005 - 2006
+Asops Kasdam l Bukit Barisan, Sebagai: . Tahun: 2003 - 2005
+Dansat 81 Gultor Kopassus, Sebagai: . Tahun: 2001 - 2003
+Asops Danjen Kopasus, Sebagai: . Tahun: 1999 - 2001
+Dan Yon 22 Kopassus, Sebagai: . Tahun: 1996 - 1999</item>
+        <item>Tempat Lahir / Tgl Lahir: Aceh Tenggara / 21 Desember 1967
+Agama: Islam
+Riwayat Pendidikan
+SD , SD Rema Bari. Tahun: - 1979
+SMP , SMP I Blangkejeran. Tahun: - 1982
+SMA , SMA Blangkejeran. Tahun: - 1985
+DIPLOMA , Diploma 3 Unsyiah. Tahun: - 1988
+S1 Ilmu Administrasi Negara, Universitas Medan Area. Tahun: - 2000
+S2 Magister Management, STIE Ganesha. Tahun: - 2003
+Riwayat Pekerjaan
+Anggota DPR RI, Sebagai: . Tahun: 2014 - 2019
+Komisi I, Sebagai: Anggota. Tahun: 2014 - 2019
+2. Anggota DPRD Provinsi, Sebagai: Anggota. Tahun: 2009 - 2014
+1. Pegawai Negeri Sipil, Sebagai: . Tahun: 1994 - 2008</item>
+        <item>Tempat Lahir / Tgl Lahir: Samalanga / 11 Mei 1970
+Agama: Islam
+Riwayat Pendidikan
+S1 Manajemen, STIE Indonesia Medan. Tahun: - 2018
+SD , SD Simplang Mamplam. Tahun: 1979 - 1985
+SMP , SMP Pandrah. Tahun: 1985 - 1989
+SMA , LPI Mudi Mesra Samalanga. Tahun: 1989 - 1999
+Riwayat Pekerjaan
+Pemerintahan Kabupaten Bireuen, Sebagai: Bupati Kabupaten Bireuen. Tahun: 2012 - 2017
+Meoligoe Hotel, Sebagai: Direktur Utama. Tahun: -
+Meoligoe Resto, Sebagai: Direktur Utama. Tahun: -
+Jumpa Elektronic (Distributor Electronic), Sebagai: Direktur Utama. Tahun: -
+Percetakan dan Printing, Sebagai: Direktur Utama. Tahun: -
+Cv.Meoligoe Property, Sebagai: Direktur Utama. Tahun: -
+Mini Market, Sebagai: Direktur Utama. Tahun: -</item>
+        <item>Prof. Dr. H. Muhammad Amien Rais, M.A., Ph.D. (lahir 26 April 1944) adalah politikus Indonesia yang saat ini menjabat sebagai Ketua Majelis Syuro Partai Ummat sejak awal dideklarasikan pada tanggal 29 April 2021. Selain itu, ia juga pernah menjabat sebagai Ketua Majelis Permusyawaratan Rakyat Republik Indonesia sejak 3 Oktober 1999 hingga 30 September 2004. Ia dikenal sebagai tokoh Muhammadiyah.[1] Ia juga dikenal sebagai pendiri Partai Amanat Nasional dan pendiri Partai Ummat.
+
+Namanya mulai mencuat ke kancah perpolitikan Indonesia sebagai salah satu orang yang kritis terhadap kebijakan-kebijakan pemerintah menjelang berakhirnya kekuasaan Orde Baru di bawah Presiden Soeharto. Setelah partai-partai politik dihidupkan kembali pada masa pemerintahan Presiden B. J. Habibie, dirinya ikut mendeklarasikan pendirian Partai Amanat Nasional (PAN).[2] Ia menjabat sebagai Ketua Umum PAN sejak partai tersebut berdiri sampai tahun 2005 dan tidak mencalonkan diri sebagai Ketua Umum di Kongres II.[3]</item>
+        <item>Soetrisno Bachir (lahir 10 April 1957) adalah seorang pengusaha dan Ketua Umum Partai Amanat Nasional (PAN) untuk periode 2005–2010.[1][2] Tahun 2016, dia menjabat sebagai Ketua Komite Ekonomi Industri Nasional.[3]
+
+Profesi Soetrisno Bachir adalah pengusaha. Bersama kakaknya, Kamaluddin Bachir, Soetrisno berkibar dengan Ika Muda Group yang bergerak di bidang properti (real estate). Melalui grup itu pula dia merintis usaha surat kabar yang kemudian berkembang menjadi harian Republika. Dia kemudian mengembangkan bisnis sendiri dalam bidang bisnis investasi melalui Sabira Group.[3]</item>
+        <item>Jenderal TNI (Purn.) Dr. H. Wiranto S.H. S.I.P. M.M. (lahir 4 April 1947) adalah seorang mantan perwira tinggi militer dan politikus senior berkebangsaan Indonesia. Saat ini, ia diberi mandat oleh Presiden Joko Widodo untuk menjabat sebagai Ketua Dewan Pertimbangan Presiden pada akhir 2019.[2] Kiprahnya di politik di awali ketika dirinya ditunjuk menjadi Menteri Pertahanan dan Keamanan menjelang berakhirnya masa Orde Baru. Saat itu, Wiranto tergabung dalam Golongan Karya hingga akhirnya ia membentuk partai baru bernama Partai Hati Nurani Rakyat pada tahun 2006.[3]</item>
+        <item>Dr. (H.C.) H. Oesman Sapta Odang Dt. Bandaro Sutan Nan Kayo (lahir 18 Agustus 1950) adalah seorang pengusaha dan politisi Indonesia. Ia pernah menjabat sebagai wakil ketua MPR RI periode 1999-2004 dan terpilih kembali sebagai wakil ketua lembaga tinggi negara tersebut dari kelompok DPD-RI untuk periode 2014-2019.[1] Dalam Sidang Paripurna DPD-RI 4 April 2017, Ia terpilih secara aklamasi sebagai Ketua DPD RI.[2]</item>
+    </string-array>
+    <integer-array name="data_photo_anggota">
+        <item>@drawable/puanmaharani</item>
+        <item>@drawable/lodewijk</item>
+        <item>@drawable/irmawan</item>
+        <item>@drawable/ruslan</item>
+        <item>@drawable/amien</item>
+        <item>@drawable/soetrisno</item>
+        <item>@drawable/wiranto</item>
+        <item>@drawable/oesman</item>
+    </integer-array>
+</resources>
