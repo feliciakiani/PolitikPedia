@@ -29,9 +29,4 @@ An application that serves as Indonesia's government wikipedia with detailed par
 # App Documentation
 App UI Documentation: [PolitikPedia Android UI](https://www.figma.com/file/0sopfCqSUCxavq8NJ80qM2/Politik-Pedia?type=design&node-id=0%3A1&mode=design&t=itgVdGMbW85lwvvR-1)
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-  <img src="https://drive.google.com/uc?export=download&id=1igVtYo_XIKV2aLqNabEhT8LOdYqs4Fgi" alt="Homepage Page PolitikPedia" width="50%">
-  <img src="https://drive.google.com/uc?export=download&id=13RqXhdxwP0sM8k2Jj5QmKYh70BhzOEa1" alt="Register Page PolitikPedia" width="50%">
-  <img src="https://drive.google.com/uc?export=download&id=1JWGFPjyLaAo00Oh1n5JGzgw2ZXXNOalH" alt="Login Page PolitikPedia" width="50%">
-  <img src="https://drive.google.com/uc?export=download&id=1YmDoQA9OhzIISZ19LBfJycOm5X__99Zn" alt="Anggota Partai Page PolitikPedia" width="50%">
-</div>
+<img src="https://drive.google.com/uc?export=download&id=1jwwge_XLBmWEPg9UxaARUBL5AsUxNXkj" alt="PolitikPedia UI" width="100%">
