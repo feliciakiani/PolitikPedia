@@ -4,7 +4,7 @@ This API, is implemented with Node.JS and Hapi Framework and it serves as the ba
 # API Endpoint
 API URL: [Cloud Run Backend](https://backend-ztd22w7ixa-et.a.run.app).
 
-|Endpoint|Menthod|Description|
+|Endpoint|Method|Description|
 |----|-----|-------|
 |/register|POST|Users can register for PolitikPedia app|
 |/login|POST|Users can login to PolitikPedia|
